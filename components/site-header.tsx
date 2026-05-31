@@ -9,9 +9,9 @@ import { withBasePath } from '@/lib/site-path'
 const copy = {
   ja: {
     nav: [
-      { label: '強み', href: '#strengths' },
       { label: 'ソリューション', href: '#solutions' },
-      { label: '経営陣', href: '#leadership' },
+      { label: '会社情報', href: '#leadership' },
+      { label: 'ニュース', href: 'news' },
       { label: 'お問い合わせ', href: '#contact' },
     ],
     consult: 'ご相談はこちら',
@@ -24,9 +24,9 @@ const copy = {
   },
   en: {
     nav: [
-      { label: 'Strengths', href: '#strengths' },
       { label: 'Solutions', href: '#solutions' },
-      { label: 'Leadership', href: '#leadership' },
+      { label: 'Company', href: '#leadership' },
+      { label: 'News', href: 'news' },
       { label: 'Contact', href: '#contact' },
     ],
     consult: 'Request Consultation',
@@ -39,9 +39,9 @@ const copy = {
   },
   zh: {
     nav: [
-      { label: '核心优势', href: '#strengths' },
       { label: '解决方案', href: '#solutions' },
-      { label: '管理团队', href: '#leadership' },
+      { label: '公司信息', href: '#leadership' },
+      { label: '新闻动态', href: 'news' },
       { label: '联系我们', href: '#contact' },
     ],
     consult: '咨询洽谈',
@@ -101,17 +101,17 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <div className="flex items-center rounded-sm border border-border/70 p-1">
+          <div className="inline-flex items-center rounded-full border border-border/70 bg-background/70 p-1 shadow-sm backdrop-blur-sm">
             {languageOptions.map((option) => (
               <button
                 key={option.value}
                 type="button"
                 onClick={() => setLocale(option.value)}
                 className={cn(
-                  'px-2.5 py-1 text-xs font-light transition-colors',
+                  'rounded-full px-3 py-1.5 text-xs font-medium transition-colors',
                   locale === option.value
-                    ? 'bg-primary text-primary-foreground'
-                    : 'text-muted-foreground hover:text-foreground',
+                    ? 'bg-foreground text-background shadow-sm'
+                    : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground',
                 )}
               >
                 {option.label}
@@ -146,17 +146,17 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-border/60 bg-background/95 backdrop-blur-md md:hidden">
           <nav className="flex flex-col px-6 py-4" aria-label={t.mobileNav}>
-            <div className="mb-3 flex items-center gap-2">
+            <div className="mb-3 inline-flex w-fit items-center rounded-full border border-border/70 bg-background/80 p-1">
               {languageOptions.map((option) => (
                 <button
                   key={option.value}
                   type="button"
                   onClick={() => setLocale(option.value)}
                   className={cn(
-                    'rounded-sm border border-border/70 px-3 py-1 text-xs font-light',
+                    'rounded-full px-3 py-1.5 text-xs font-medium transition-colors',
                     locale === option.value
-                      ? 'border-primary bg-primary text-primary-foreground'
-                      : 'text-muted-foreground',
+                      ? 'bg-foreground text-background shadow-sm'
+                      : 'text-muted-foreground hover:bg-muted/60 hover:text-foreground',
                   )}
                 >
                   {option.label}

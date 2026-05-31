@@ -20,6 +20,7 @@ const copy = {
     inquiryType: 'ご希望内容',
     inquiryConsultation: 'ご相談',
     inquiryMaterials: '資料請求',
+    inquiryCareers: '採用について',
     messagePlaceholder: '貴社の課題やご相談内容をご記入ください。',
     secure: '通信は暗号化され、厳重な機密管理のもとで取り扱います',
     submit: '送信する',
@@ -38,6 +39,7 @@ const copy = {
     inquiryType: 'Request Type',
     inquiryConsultation: 'Consultation',
     inquiryMaterials: 'Materials Request',
+    inquiryCareers: 'Careers',
     messagePlaceholder: 'Tell us about your organization and objectives.',
     secure: 'Encrypted and handled with strict confidentiality',
     submit: 'Submit Inquiry',
@@ -56,6 +58,7 @@ const copy = {
     inquiryType: '咨询类型',
     inquiryConsultation: '咨询洽谈',
     inquiryMaterials: '资料索取',
+    inquiryCareers: '招聘相关',
     messagePlaceholder: '请填写贵公司的需求与目标。',
     secure: '信息将加密传输并严格保密处理',
     submit: '提交咨询',
@@ -64,14 +67,14 @@ const copy = {
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
-  const [inquiryType, setInquiryType] = useState<'consultation' | 'materials'>('consultation')
+  const [inquiryType, setInquiryType] = useState<'consultation' | 'materials' | 'careers'>('consultation')
   const { locale } = useLocale()
   const t = copy[locale]
 
   useEffect(() => {
     const type = new URLSearchParams(window.location.search).get('inquiry')
-    if (type === 'materials') {
-      setInquiryType('materials')
+    if (type === 'materials' || type === 'careers') {
+      setInquiryType(type)
     }
   }, [])
 
@@ -130,11 +133,12 @@ export function ContactForm() {
           id="inquiryType"
           name="inquiryType"
           value={inquiryType}
-          onChange={(e) => setInquiryType(e.target.value as 'consultation' | 'materials')}
+          onChange={(e) => setInquiryType(e.target.value as 'consultation' | 'materials' | 'careers')}
           className="border border-border bg-background px-4 py-3 text-sm font-light text-foreground focus:border-primary focus:outline-none"
         >
           <option value="consultation">{t.inquiryConsultation}</option>
           <option value="materials">{t.inquiryMaterials}</option>
+          <option value="careers">{t.inquiryCareers}</option>
         </select>
       </div>
 

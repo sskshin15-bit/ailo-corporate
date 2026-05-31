@@ -6,11 +6,17 @@ import { useLocale } from '@/components/locale-provider'
 const copy = {
   ja: {
     label: 'Our Vision',
-    heading: '圧倒的なAIの力で、ビジネスに「愛」と「繋がり」を。',
-    paragraph1:
-      '社名である「Ailo（アイロ）」には、3つの意味が込められています。最先端のテクノロジーを駆使する「AI（人工知能）」。人々の生活や仕事を楽にし、思いやりを持つ「愛」。そして、それらが循環し、永続的な価値を生み出す「O（輪・繋がり）」。',
-    paragraph2:
-      '私たちは、圧倒的なテクノロジーの力で非生産的な業務を極限まで自動化し、人が「人を想う時間（ホスピタリティ）」を最大化するためのインフラを創造します。',
+    heading: '迫り来るAIという「隘路」を制し、その先に「愛」と「繋がり」の循環を創る。',
+    intro:
+      '合同会社Ailo（アイロ）の社名には、私たちが果たすべき「使命」と、大切にする「哲学」という、2つの深い意味が込められています。',
+    missionTitle: '使命としての「隘路（アイロ）」',
+    missionBody:
+      'これからのビジネスにおいて、AIは単なる便利なツールではなく、企業の生存を左右する最大の「隘路（戦術的な要衝）」となります。この強力なテクノロジーをどう制御し、どう自社に取り込むか。私たちは、御社の強力な外部CTOとしてこの時代最大のボトルネックに切り込み、AIという難所を共に突破する確かな道筋を切り拓きます。',
+    philosophyTitle: '哲学としての「AI・愛・O」',
+    philosophyBody:
+      'テクノロジーの要衝を制した先に描くのは、3つの理想の融合です。自律的で高度に洗練された「AI（人工知能）」。AIの力で余白を生み、人を思いやる「愛」。その温もりが、永続的な価値として連なる「O（輪・繋がり）」。',
+    closing:
+      '私たちは、時代の「隘路」をテクノロジーで打ち破り、人が「人を想う時間（ホスピタリティ）」を最大化するための次世代インフラを創造します。',
   },
   en: {
     label: 'Our Vision',
@@ -35,9 +41,9 @@ export function VisionSection() {
   const t = copy[locale]
 
   return (
-    <section id="vision" className="bg-[#0A192F] py-32">
+    <section id="vision" className="bg-[#0A192F] py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
+        <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <div className="mb-8 flex items-center justify-center gap-4">
               <span className="h-px w-12 bg-primary/80" aria-hidden="true" />
@@ -50,13 +56,17 @@ export function VisionSection() {
             <h2 className="font-serif text-3xl font-light leading-tight text-white text-balance lg:text-5xl">
               {locale === 'ja' ? (
                 <>
-                  圧倒的な
+                  迫り来る
                   <span className="text-amber-400">AI</span>
-                  の力で、ビジネスに「
+                  という「
+                  <span className="text-amber-300">隘路</span>
+                  」を制し、
+                  <br className="hidden md:block" />
+                  その先に「
                   <span className="text-amber-300">愛</span>
                   」と「
                   <span className="text-amber-200">繋がり</span>
-                  」を。
+                  」の循環を創る。
                 </>
               ) : (
                 t.heading
@@ -67,15 +77,7 @@ export function VisionSection() {
           <Reveal delay={180}>
             <p className="mt-10 text-base font-light leading-relaxed text-slate-300 text-pretty">
               {locale === 'ja' ? (
-                <>
-                  社名である「Ailo（アイロ）」には、3つの意味が込められています。最先端のテクノロジーを駆使する「
-                  <span className="text-amber-400">AI（人工知能）</span>
-                  」。人々の生活や仕事を楽にし、思いやりを持つ「
-                  <span className="text-amber-300">愛</span>
-                  」。そして、それらが循環し、永続的な価値を生み出す「
-                  <span className="text-amber-200">O（輪・繋がり）</span>
-                  」。
-                </>
+                t.intro
               ) : (
                 t.paragraph1
               )}
@@ -83,9 +85,27 @@ export function VisionSection() {
           </Reveal>
 
           <Reveal delay={260}>
-            <p className="mt-7 text-base font-light leading-relaxed text-slate-400 text-pretty">
-              {t.paragraph2}
-            </p>
+            {locale === 'ja' ? (
+              <div className="mt-8 space-y-7">
+                <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">
+                  <span className="font-medium text-amber-400">{t.missionTitle}</span>
+                  <br />
+                  {t.missionBody}
+                </p>
+                <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">
+                  <span className="font-medium text-amber-400">{t.philosophyTitle}</span>
+                  <br />
+                  {t.philosophyBody}
+                </p>
+                <p className="text-base font-light leading-relaxed text-slate-200 text-pretty">
+                  {t.closing}
+                </p>
+              </div>
+            ) : (
+              <p className="mt-7 text-base font-light leading-relaxed text-slate-400 text-pretty">
+                {t.paragraph2}
+              </p>
+            )}
           </Reveal>
         </div>
       </div>

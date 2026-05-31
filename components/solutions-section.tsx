@@ -239,11 +239,12 @@ const copy: Record<
 export function SolutionsSection() {
   const { locale } = useLocale()
   const t = copy[locale]
+  const solutionAnchors = ['solution-line-order-ai-crm', 'solution-sendthanks', 'solution-trustloop']
 
   return (
     <section
       id="solutions"
-      className="relative border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#122445_100%)] py-28 lg:py-36"
+      className="relative scroll-mt-28 border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#122445_100%)] py-28 lg:py-36"
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
@@ -270,7 +271,10 @@ export function SolutionsSection() {
         <div className="grid gap-8 lg:grid-cols-3">
           {t.solutions.map((solution, i) => (
             <Reveal key={solution.name} delay={i * 120}>
-              <article className="group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
+              <article
+                id={solutionAnchors[i]}
+                className="group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50"
+              >
                 <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
                   <span className="text-xs font-light tracking-[0.15em] text-primary">{solution.tag}</span>
                   <ArrowUpRight
@@ -322,7 +326,10 @@ export function SolutionsSection() {
         </div>
 
         <Reveal delay={80}>
-          <article className="mt-10 group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
+          <article
+            id="solution-enterprise-dx"
+            className="mt-10 group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50"
+          >
             <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
               <span className="text-xs font-light tracking-[0.15em] text-primary">
                 {t.enterpriseDxSolution.tag}
@@ -377,7 +384,7 @@ export function SolutionsSection() {
         </Reveal>
 
         <Reveal delay={140}>
-          <article className="mt-10 group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
+          <article className="mt-10 group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
             <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
               <span className="text-xs font-light tracking-[0.15em] text-primary">{t.tailoredTag}</span>
               <ArrowUpRight

@@ -3,6 +3,7 @@
 import { Reveal } from '@/components/reveal'
 import { ContactForm } from '@/components/contact-form'
 import { useLocale } from '@/components/locale-provider'
+import { withBasePath } from '@/lib/site-path'
 
 const copy = {
   ja: {
@@ -19,26 +20,33 @@ const copy = {
     footerNav: [
       {
         heading: '会社情報',
-        links: ['Ailoについて', '経営陣', '採用情報', 'ニュース'],
+        links: [
+          { label: 'Ailoについて', href: '/#top' },
+          { label: '導入体制', href: '/#enterprise-readiness' },
+          { label: '経営陣', href: '/#leadership' },
+          { label: '採用情報', href: '/careers' },
+          { label: 'ニュース', href: '/#vision' },
+        ],
       },
       {
         heading: 'ソリューション',
-        links: ['SendThanks', 'LINEモバイルオーダー＆AI-CRM', 'TrustLoop', 'AI-DXコンサルティング'],
+        links: [
+          { label: 'SendThanks', href: '/#solution-sendthanks' },
+          { label: 'LINEモバイルオーダー＆AI-CRM', href: '/#solution-line-order-ai-crm' },
+          { label: 'TrustLoop', href: '/#solution-trustloop' },
+          { label: 'AI-DXコンサルティング', href: '/#solution-enterprise-dx' },
+        ],
       },
       {
         heading: '法務・規約',
-        links: ['プライバシーポリシー', '利用規約', 'セキュリティ', 'コンプライアンス'],
+        links: [
+          { label: 'プライバシーポリシー', href: '/privacy-policy' },
+          { label: '利用規約', href: '/terms' },
+        ],
       },
     ],
     companyAria: '会社情報',
     homeAria: '合同会社Ailo トップページ',
-    assuranceLabel: 'Enterprise Readiness',
-    assuranceHeading: '法務・情シス部門に配慮した、導入前提の運用設計',
-    assuranceItems: [
-      '要件定義段階から、法務・税務観点を含めたリスク評価を実施します。',
-      'セキュリティ要件、運用体制、権限設計を可視化し、稟議資料作成まで支援します。',
-      '導入後の運用フロー・監査対応を見据えた、再現性の高い実装を行います。',
-    ],
   },
   en: {
     label: 'Contact',
@@ -54,26 +62,33 @@ const copy = {
     footerNav: [
       {
         heading: 'Company',
-        links: ['About Ailo', 'Leadership', 'Careers', 'Newsroom'],
+        links: [
+          { label: 'About Ailo', href: '/#top' },
+          { label: 'Readiness', href: '/#enterprise-readiness' },
+          { label: 'Leadership', href: '/#leadership' },
+          { label: 'Careers', href: '/careers' },
+          { label: 'Newsroom', href: '/#vision' },
+        ],
       },
       {
         heading: 'Solutions',
-        links: ['SendThanks', 'LINE Order & AI-CRM', 'TrustLoop', 'DX Consulting'],
+        links: [
+          { label: 'SendThanks', href: '/#solution-sendthanks' },
+          { label: 'LINE Order & AI-CRM', href: '/#solution-line-order-ai-crm' },
+          { label: 'TrustLoop', href: '/#solution-trustloop' },
+          { label: 'DX Consulting', href: '/#solution-enterprise-dx' },
+        ],
       },
       {
         heading: 'Legal',
-        links: ['Privacy Policy', 'Terms of Service', 'Security', 'Compliance'],
+        links: [
+          { label: 'Privacy Policy', href: '/privacy-policy' },
+          { label: 'Terms of Service', href: '/terms' },
+        ],
       },
     ],
     companyAria: 'Company links',
     homeAria: 'Ailo LLC home',
-    assuranceLabel: 'Enterprise Readiness',
-    assuranceHeading: 'Implementation design aligned with legal and IT governance',
-    assuranceItems: [
-      'We evaluate risks from the planning stage, including legal and tax perspectives.',
-      'We make security requirements, operational roles, and access control visible for internal approval.',
-      'We deliver reproducible implementations designed for post-launch operations and audit readiness.',
-    ],
   },
   zh: {
     label: '联系我们',
@@ -89,26 +104,30 @@ const copy = {
     footerNav: [
       {
         heading: '了解Ailo',
-        links: ['关于Ailo'],
+        links: [
+          { label: '关于Ailo', href: '/#top' },
+          { label: '导入设计', href: '/#enterprise-readiness' },
+        ],
       },
       {
         heading: '核心解决方案',
-        links: ['SendThanks', 'LINE点单与AI-CRM', 'TrustLoop', 'DX咨询'],
+        links: [
+          { label: 'SendThanks', href: '/#solution-sendthanks' },
+          { label: 'LINE点单与AI-CRM', href: '/#solution-line-order-ai-crm' },
+          { label: 'TrustLoop', href: '/#solution-trustloop' },
+          { label: 'DX咨询', href: '/#solution-enterprise-dx' },
+        ],
       },
       {
         heading: '法律与合规',
-        links: ['隐私政策', '服务条款', '安全', '合规'],
+        links: [
+          { label: '隐私政策', href: '/privacy-policy' },
+          { label: '服务条款', href: '/terms' },
+        ],
       },
     ],
     companyAria: '公司导航',
     homeAria: 'Ailo 首页',
-    assuranceLabel: 'Enterprise Readiness',
-    assuranceHeading: '兼顾法务与信息系统治理的落地方案设计',
-    assuranceItems: [
-      '我们在需求定义阶段即纳入法务与税务视角开展风险评估。',
-      '将安全要求、运维体制与权限设计可视化，支持企业内部审批。',
-      '面向上线后的运营与审计场景，提供可复用、可持续的实施方案。',
-    ],
   },
 } as const
 
@@ -122,28 +141,6 @@ export function ContactFooter() {
       className="border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#14274a_100%)]"
     >
       <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
-        <Reveal>
-          <div className="mb-12 border border-border/60 bg-card p-8 lg:mb-14 lg:p-10">
-            <div className="mb-6 flex items-center gap-4">
-              <span className="h-px w-12 bg-primary" aria-hidden="true" />
-              <span className="text-xs font-light uppercase tracking-[0.3em] text-primary">{t.assuranceLabel}</span>
-            </div>
-            <h3 className="font-serif text-2xl font-light leading-snug text-foreground lg:text-3xl">
-              {t.assuranceHeading}
-            </h3>
-            <div className="mt-6 space-y-4">
-              {t.assuranceItems.map((item) => (
-                <p
-                  key={item}
-                  className="border-l border-primary/40 pl-4 text-sm font-light leading-relaxed text-muted-foreground text-pretty"
-                >
-                  {item}
-                </p>
-              ))}
-            </div>
-          </div>
-        </Reveal>
-
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <Reveal>
@@ -193,7 +190,7 @@ export function ContactFooter() {
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
           <div className="grid gap-12 md:grid-cols-4">
             <div>
-              <a href="#top" className="flex items-baseline gap-2" aria-label={t.homeAria}>
+              <a href={withBasePath('/#top')} className="flex items-baseline gap-2" aria-label={t.homeAria}>
                 <span className="text-2xl font-medium tracking-[0.35em] text-foreground">AILO</span>
                 <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-primary" aria-hidden="true" />
               </a>
@@ -209,12 +206,12 @@ export function ContactFooter() {
                 </h3>
                 <ul className="mt-5 space-y-3">
                   {col.links.map((link) => (
-                    <li key={link}>
+                    <li key={link.label}>
                       <a
-                        href="#"
+                        href={withBasePath(link.href)}
                         className="text-sm font-light text-muted-foreground transition-colors hover:text-primary"
                       >
-                        {link}
+                        {link.label}
                       </a>
                     </li>
                   ))}
