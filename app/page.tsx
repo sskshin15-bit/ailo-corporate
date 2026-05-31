@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/site-header'
 import { HeroSection } from '@/components/hero-section'
 import { StrengthsSection } from '@/components/strengths-section'
@@ -7,6 +8,12 @@ import { EnterpriseReadinessSection } from '@/components/enterprise-readiness-se
 import { BoardSection } from '@/components/board-section'
 import { ContactFooter } from '@/components/contact-footer'
 import { LocaleProvider } from '@/components/locale-provider'
+
+export const metadata: Metadata = {
+  robots: {
+    noimageindex: true,
+  },
+}
 
 export default function Page() {
   return (
