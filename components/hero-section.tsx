@@ -53,7 +53,22 @@ export function HeroSection() {
         <div className="relative z-10 max-w-4xl text-left">
           <Reveal>
             <h1 className="whitespace-pre-line font-serif text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_3px_18px_rgba(2,8,23,0.65)] sm:text-6xl lg:text-6xl">
-              {t.heading1}
+              {locale === 'ja' ? (
+                <>
+                  ビジネスの「
+                  <span className="relative inline-block px-1 text-amber-300">
+                    <span className="absolute -top-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.28em] font-sans tracking-[0.2em] text-amber-200">
+                      AILO
+                    </span>
+                    隘路
+                  </span>
+                  」を切り拓き、
+                  <br />
+                  人を想う「<span className="text-amber-200">繋がり</span>」を創り出す。
+                </>
+              ) : (
+                t.heading1
+              )}
             </h1>
           </Reveal>
 

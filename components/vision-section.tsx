@@ -66,7 +66,20 @@ export function VisionSection() {
 
           <Reveal delay={90}>
             <h2 className="font-serif text-3xl font-light leading-tight text-white text-balance lg:text-5xl">
-              {t.heading}
+              {locale === 'ja' ? (
+                <>
+                  迫り来るAIという「
+                  <ruby>
+                    <span className="text-amber-300">隘路</span>
+                    <rt className="text-[0.32em] font-sans tracking-[0.2em] text-amber-200">AILO</rt>
+                  </ruby>
+                  」を制し、その先に「<span className="text-pink-200">愛</span>」と「
+                  <span className="text-amber-200">繋がり</span>
+                  」の循環を創る。
+                </>
+              ) : (
+                t.heading
+              )}
             </h2>
           </Reveal>
 
@@ -79,12 +92,12 @@ export function VisionSection() {
           <Reveal delay={260}>
             <div className="mt-8 space-y-7">
               <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">
-                <span className="font-medium text-primary">{t.missionTitle}</span>
+                <span className="font-medium text-amber-300">{t.missionTitle}</span>
                 <br />
                 {t.missionBody}
               </p>
               <p className="text-base font-light leading-relaxed text-slate-400 text-pretty">
-                <span className="font-medium text-primary">{t.philosophyTitle}</span>
+                <span className="font-medium text-amber-200">{t.philosophyTitle}</span>
                 <br />
                 {t.philosophyBody}
               </p>
