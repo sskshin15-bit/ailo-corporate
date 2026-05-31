@@ -102,7 +102,10 @@ export function StrengthsSection() {
   const t = copy[locale]
 
   return (
-    <section id="strengths" className="border-t border-border/60 py-28 lg:py-36">
+    <section
+      id="strengths"
+      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-28 lg:py-36"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-16 flex items-center gap-4">

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, type FormEvent } from 'react'
+import { useEffect, useState, type FormEvent } from 'react'
 import { Lock, Check } from 'lucide-react'
 import { useLocale } from '@/components/locale-provider'
 
@@ -17,6 +17,9 @@ const copy = {
     companyPlaceholder: '会社名をご入力ください',
     phonePlaceholder: '03-xxxx-xxxx',
     help: 'ご相談内容',
+    inquiryType: 'ご希望内容',
+    inquiryConsultation: 'ご相談',
+    inquiryMaterials: '資料請求',
     messagePlaceholder: '貴社の課題やご相談内容をご記入ください。',
     secure: '通信は暗号化され、厳重な機密管理のもとで取り扱います',
     submit: '送信する',
@@ -32,6 +35,9 @@ const copy = {
     companyPlaceholder: 'Company name',
     phonePlaceholder: '+81 ...',
     help: 'How can we help?',
+    inquiryType: 'Request Type',
+    inquiryConsultation: 'Consultation',
+    inquiryMaterials: 'Materials Request',
     messagePlaceholder: 'Tell us about your organization and objectives.',
     secure: 'Encrypted and handled with strict confidentiality',
     submit: 'Submit Inquiry',
@@ -47,6 +53,9 @@ const copy = {
     companyPlaceholder: '请输入公司名称',
     phonePlaceholder: '+81 ...',
     help: '您的需求',
+    inquiryType: '咨询类型',
+    inquiryConsultation: '咨询洽谈',
+    inquiryMaterials: '资料索取',
     messagePlaceholder: '请填写贵公司的需求与目标。',
     secure: '信息将加密传输并严格保密处理',
     submit: '提交咨询',
@@ -55,8 +64,16 @@ const copy = {
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [inquiryType, setInquiryType] = useState<'consultation' | 'materials'>('consultation')
   const { locale } = useLocale()
   const t = copy[locale]
+
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get('inquiry')
+    if (type === 'materials') {
+      setInquiryType('materials')
+    }
+  }, [])
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -103,6 +120,22 @@ export function ContactForm() {
           placeholder={t.phonePlaceholder}
           required={false}
         />
+      </div>
+
+      <div className="mt-6 flex flex-col gap-2">
+        <label htmlFor="inquiryType" className="text-xs font-light uppercase tracking-[0.2em] text-muted-foreground">
+          {t.inquiryType}
+        </label>
+        <select
+          id="inquiryType"
+          name="inquiryType"
+          value={inquiryType}
+          onChange={(e) => setInquiryType(e.target.value as 'consultation' | 'materials')}
+          className="border border-border bg-background px-4 py-3 text-sm font-light text-foreground focus:border-primary focus:outline-none"
+        >
+          <option value="consultation">{t.inquiryConsultation}</option>
+          <option value="materials">{t.inquiryMaterials}</option>
+        </select>
       </div>
 
       <div className="mt-6 flex flex-col gap-2">

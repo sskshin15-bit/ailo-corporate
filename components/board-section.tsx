@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Linkedin } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { useLocale } from '@/components/locale-provider'
+import { withBasePath } from '@/lib/site-path'
 
 const copy = {
   ja: {
@@ -13,7 +14,7 @@ const copy = {
     members: [
       {
         name: '佐々木 慎太朗',
-        role: '代表 CEO',
+        role: '代表 / CEO',
         image: '/board-ceo.png',
         bio: 'デジタルマーケティング、UI/UX戦略、事業開発統括。リッチメディアを用いたエンゲージメント創出の専門家であり、ユーザーの心理を読み解き「自然な行動」を促すカスタマーエクスペリエンス（CX）設計を牽引。複雑なシステム要件を、誰もが使いやすい直感的なサービスへと落とし込むプロダクトマネジメントを主導する。',
       },
@@ -70,7 +71,10 @@ export function BoardSection() {
   const t = copy[locale]
 
   return (
-    <section id="leadership" className="border-t border-border/60 py-28 lg:py-36">
+    <section
+      id="leadership"
+      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-28 lg:py-36"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <Reveal>
           <div className="mb-16 flex items-center gap-4">
@@ -93,7 +97,7 @@ export function BoardSection() {
               <article className="group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50 sm:flex-row">
                 <div className="relative h-64 w-full shrink-0 sm:h-auto sm:w-48">
                   <Image
-                    src={member.image || '/placeholder.svg'}
+                    src={withBasePath(member.image || '/placeholder.svg')}
                     alt={`Portrait of ${member.name}`}
                     fill
                     className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0"

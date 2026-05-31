@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { useLocale } from '@/components/locale-provider'
+import { withBasePath } from '@/lib/site-path'
 
 type SolutionItem = {
   tag: string
@@ -27,7 +28,8 @@ const copy: Record<
     label: string
     heading: string
     intro: string
-    detailCta: string
+    consultCta: string
+    docsCta: string
     note: string
     tailoredTag: string
     tailoredHeading: string
@@ -41,7 +43,8 @@ const copy: Record<
     label: '主要ソリューション',
     heading: '主要事業・プロダクト',
     intro: 'お客様の事業特性に即した設計思想で、現場の業務変革と経営成果を同時に実現するソリューション群をご提供しています。',
-    detailCta: '詳細のご相談はこちら',
+    consultCta: '相談する',
+    docsCta: '資料請求',
     note: '（※記載の客単価向上・コスト削減等の効果数値は、導入モデルに基づく当社シミュレーション値であり、実際の成果を完全に保証するものではありません）',
     tailoredTag: '個別実装支援',
     tailoredHeading: '個別要件に応じた、エンタープライズ向け実装プログラムにも対応しています。',
@@ -64,7 +67,7 @@ const copy: Record<
       {
         tag: 'SendThanks（センドサンクス）',
         name: 'ホスピタリティ業界向け デジタルチップ ＆ HR支援SaaS',
-        summary: '感動を、現場スタッフへの感謝へ',
+        summary: '感動を、現場スタッフへの感謝へ。',
         description:
           'インバウンド旅行者からの「感動」を、現場スタッフへの「感謝（チップ）」として届ける次世代プラットフォーム。専用アプリ不要・Apple Pay等により極めてスムーズな決済を実現します。既存のPOSレジに干渉しにくい設計を採用し、集まった資金を「法人の売上」と「適法な手当」へシステム上で自動集計・分配。従業員の離職防止と採用力強化に貢献する経済効果を生み出します。（※関連技術について特許出願中）',
       },
@@ -91,7 +94,7 @@ const copy: Record<
         {
           number: '02',
           title: 'オーダーメイド・システム開発 ＆ 業務自動化（BPA）',
-          body: '汎用ツールでは解決できない複雑な業務要件に対し、モダンなWebアーキテクチャと生成AIを融合させた専用システムをフルスクラッチ（オーダーメイド）で開発いたします。非生産的な入力作業を極小化するバックオフィス自動化ツールから、独自データを学習させた高度な社内用AIエージェント、顧客向けの自動応答インフラまで、規模を問わず極めて迅速に実装します。',
+          body: '汎用ツールでは解決できない複雑な業務要件に対し、モダンなWebアーキテクチャと生成AIを融合させた専用システムをフルスクラッチ（オーダーメイド）で開発いたします。非生産的な入力作業を最小化するバックオフィス自動化ツールから、独自データを学習させた高度な社内用AIエージェント、顧客向けの自動応答インフラまで、規模を問わず極めて迅速に実装します。',
         },
         {
           number: '03',
@@ -105,7 +108,8 @@ const copy: Record<
     label: 'Our Solutions',
     heading: 'Core Business Solutions',
     intro: 'We provide a suite of solutions designed to align with your business characteristics, simultaneously transforming frontline operations and achieving management results.',
-    detailCta: 'Request Details',
+    consultCta: 'Consultation',
+    docsCta: 'Request Materials',
     note: '(*Projected improvements and cost reductions are simulated estimates and do not constitute a complete guarantee of actual outcomes.)',
     tailoredTag: 'Custom Implementation Support',
     tailoredHeading: 'We provide enterprise-grade implementation programs customized to specific requirements.',
@@ -169,7 +173,8 @@ const copy: Record<
     label: '核心解决方案',
     heading: '主要业务与产品',
     intro: '我们提供契合您业务特性的解决方案，在实现一线业务变革的同时，助力达成卓越的经营成果。',
-    detailCta: '了解详情与咨询',
+    consultCta: '咨询洽谈',
+    docsCta: '索取资料',
     note: '（*注：所列客单价提升、成本削减等数据为基于特定导入模型的模拟预测值，不构成对实际结果的绝对保证。）',
     tailoredTag: '个性化部署支持',
     tailoredHeading: '我们可根据您的特定需求提供企业级的定制化实施方案。',
@@ -236,7 +241,10 @@ export function SolutionsSection() {
   const t = copy[locale]
 
   return (
-    <section id="solutions" className="relative border-t border-border/60 py-28 lg:py-36">
+    <section
+      id="solutions"
+      className="relative border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#122445_100%)] py-28 lg:py-36"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mb-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
@@ -293,13 +301,20 @@ export function SolutionsSection() {
                       ))}
                     </div>
                   ) : null}
-                  <a
-                    href="#contact"
-                    className="mt-8 inline-flex items-center gap-2 text-sm font-light tracking-wide text-foreground transition-colors hover:text-primary"
-                  >
-                    {t.detailCta}
-                    <span className="h-px w-6 bg-current" aria-hidden="true" />
-                  </a>
+                  <div className="mt-8 flex flex-wrap gap-3">
+                    <a
+                      href="?inquiry=consultation#contact"
+                      className="inline-flex items-center justify-center border border-primary/50 px-4 py-2 text-xs font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                    >
+                      {t.consultCta}
+                    </a>
+                    <a
+                      href="?inquiry=materials#contact"
+                      className="inline-flex items-center justify-center border border-border px-4 py-2 text-xs font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
+                    >
+                      {t.docsCta}
+                    </a>
+                  </div>
                 </div>
               </article>
             </Reveal>
@@ -307,36 +322,51 @@ export function SolutionsSection() {
         </div>
 
         <Reveal delay={80}>
-          <article className="mt-10 border border-primary/30 bg-card">
-            <div className="border-b border-border/60 px-8 py-6 lg:px-10">
+          <article className="mt-10 group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
+            <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
               <span className="text-xs font-light tracking-[0.15em] text-primary">
                 {t.enterpriseDxSolution.tag}
               </span>
-              <h3 className="mt-5 font-serif text-2xl font-light leading-snug text-foreground text-balance lg:text-3xl">
+              <ArrowUpRight
+                className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
+                aria-hidden="true"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-8">
+              <h3 className="text-2xl font-medium tracking-tight text-foreground">
                 {t.enterpriseDxSolution.title}
               </h3>
-              <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground text-pretty">
+              <p className="mt-2 text-sm font-light leading-relaxed text-muted-foreground text-pretty">
                 〜 {t.enterpriseDxSolution.lead} 〜
               </p>
-            </div>
-
-            <div className="px-8 py-8 lg:px-10 lg:py-10">
-              <p className="text-sm font-light leading-relaxed text-muted-foreground text-pretty">
+              <p className="mt-6 text-sm font-light leading-relaxed text-muted-foreground text-pretty">
                 {t.enterpriseDxSolution.description}
               </p>
 
-              <div className="mt-8 grid gap-6 lg:grid-cols-3">
+              <div className="mt-6 space-y-4">
                 {t.enterpriseDxSolution.pillars.map((pillar) => (
-                  <div key={pillar.number} className="border border-border/60 bg-background p-6">
-                    <p className="font-serif text-3xl font-light text-primary">{pillar.number}</p>
-                    <h4 className="mt-4 text-base font-medium leading-snug text-foreground text-pretty">
-                      {pillar.title}
-                    </h4>
-                    <p className="mt-4 text-sm font-light leading-relaxed text-muted-foreground text-pretty">
-                      {pillar.body}
-                    </p>
-                  </div>
+                  <p
+                    key={pillar.number}
+                    className="border-l border-primary/40 pl-4 text-sm font-light leading-relaxed text-muted-foreground text-pretty"
+                  >
+                    {pillar.number}. {pillar.title}: {pillar.body}
+                  </p>
                 ))}
+              </div>
+
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="?inquiry=consultation#contact"
+                  className="inline-flex items-center justify-center border border-primary/50 px-4 py-2 text-xs font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                >
+                  {t.consultCta}
+                </a>
+                <a
+                  href="?inquiry=materials#contact"
+                  className="inline-flex items-center justify-center border border-border px-4 py-2 text-xs font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  {t.docsCta}
+                </a>
               </div>
             </div>
           </article>
@@ -349,7 +379,12 @@ export function SolutionsSection() {
         <Reveal delay={140}>
           <div className="mt-8 grid overflow-hidden border border-border/60 lg:grid-cols-2">
             <div className="relative min-h-[260px] lg:min-h-full">
-              <Image src="/luxury-hospitality.png" alt={t.imageAlt} fill className="object-cover" />
+              <Image
+                src={withBasePath('/luxury-hospitality.png')}
+                alt={t.imageAlt}
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="flex flex-col justify-center bg-card p-10 lg:p-14">
               <span className="text-xs font-light tracking-[0.2em] text-primary">{t.tailoredTag}</span>

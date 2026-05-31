@@ -1,14 +1,20 @@
 /** @type {import('next').NextConfig} */
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? ""
 const isGithubActions = process.env.GITHUB_ACTIONS === "true"
+const isProduction = process.env.NODE_ENV === "production"
 const isUserOrOrgSite = repoName.endsWith(".github.io")
-const basePath = isGithubActions && !isUserOrOrgSite ? `/${repoName}` : ""
+const fallbackProjectRepo = "ailo-corporate"
+const resolvedRepoName = repoName || fallbackProjectRepo
+const basePath = !isUserOrOrgSite && (isGithubActions || isProduction) ? `/${resolvedRepoName}` : ""
 
 const nextConfig = {
   output: "export",
   trailingSlash: true,
   basePath,
   assetPrefix: basePath || undefined,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },

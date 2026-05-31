@@ -14,6 +14,7 @@ const copy = {
       { label: 'お問い合わせ', href: '#contact' },
     ],
     consult: 'ご相談はこちら',
+    requestDocs: '資料請求',
     openMenu: 'メニューを開く',
     closeMenu: 'メニューを閉じる',
     primaryNav: '主要ナビゲーション',
@@ -28,6 +29,7 @@ const copy = {
       { label: 'Contact', href: '#contact' },
     ],
     consult: 'Request Consultation',
+    requestDocs: 'Request Materials',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     primaryNav: 'Primary navigation',
@@ -42,6 +44,7 @@ const copy = {
       { label: '联系我们', href: '#contact' },
     ],
     consult: '咨询洽谈',
+    requestDocs: '索取资料',
     openMenu: '打开菜单',
     closeMenu: '关闭菜单',
     primaryNav: '主导航',
@@ -115,10 +118,16 @@ export function SiteHeader() {
             ))}
           </div>
           <a
-            href="#contact"
+            href="?inquiry=consultation#contact"
             className="border border-primary/60 px-6 py-2.5 text-sm font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             {t.consult}
+          </a>
+          <a
+            href="?inquiry=materials#contact"
+            className="border border-border px-6 py-2.5 text-sm font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            {t.requestDocs}
           </a>
         </div>
 
@@ -164,11 +173,18 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="?inquiry=consultation#contact"
               onClick={() => setOpen(false)}
               className="mt-4 border border-primary/60 px-6 py-3 text-center text-sm font-light tracking-wide text-primary"
             >
               {t.consult}
+            </a>
+            <a
+              href="?inquiry=materials#contact"
+              onClick={() => setOpen(false)}
+              className="mt-3 border border-border px-6 py-3 text-center text-sm font-light tracking-wide text-foreground"
+            >
+              {t.requestDocs}
             </a>
           </nav>
         </div>
