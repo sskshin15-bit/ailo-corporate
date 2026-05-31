@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useLocale, type Locale } from '@/components/locale-provider'
+import { withBasePath } from '@/lib/site-path'
 
 const copy = {
   ja: {
@@ -82,7 +83,7 @@ export function SiteHeader() {
       )}
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="#top" className="flex items-baseline gap-2" aria-label={t.homeAria}>
+        <a href={withBasePath('/#top')} className="flex items-baseline gap-2" aria-label={t.homeAria}>
           <span className="text-2xl font-medium tracking-[0.35em] text-foreground">AILO</span>
           <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-primary" aria-hidden="true" />
         </a>
@@ -91,7 +92,7 @@ export function SiteHeader() {
           {t.nav.map((link) => (
             <a
               key={link.href}
-              href={link.href}
+              href={withBasePath(`/${link.href}`)}
               className="text-sm font-light tracking-wide text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
@@ -118,13 +119,13 @@ export function SiteHeader() {
             ))}
           </div>
           <a
-            href="?inquiry=consultation#contact"
+            href={withBasePath('/?inquiry=consultation#contact')}
             className="border border-primary/60 px-6 py-2.5 text-sm font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
           >
             {t.consult}
           </a>
           <a
-            href="?inquiry=materials#contact"
+            href={withBasePath('/?inquiry=materials#contact')}
             className="border border-border px-6 py-2.5 text-sm font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
           >
             {t.requestDocs}
@@ -165,7 +166,7 @@ export function SiteHeader() {
             {t.nav.map((link) => (
               <a
                 key={link.href}
-                href={link.href}
+                href={withBasePath(`/${link.href}`)}
                 onClick={() => setOpen(false)}
                 className="border-b border-border/40 py-4 text-sm font-light tracking-wide text-muted-foreground transition-colors hover:text-foreground"
               >
@@ -173,14 +174,14 @@ export function SiteHeader() {
               </a>
             ))}
             <a
-              href="?inquiry=consultation#contact"
+              href={withBasePath('/?inquiry=consultation#contact')}
               onClick={() => setOpen(false)}
               className="mt-4 border border-primary/60 px-6 py-3 text-center text-sm font-light tracking-wide text-primary"
             >
               {t.consult}
             </a>
             <a
-              href="?inquiry=materials#contact"
+              href={withBasePath('/?inquiry=materials#contact')}
               onClick={() => setOpen(false)}
               className="mt-3 border border-border px-6 py-3 text-center text-sm font-light tracking-wide text-foreground"
             >

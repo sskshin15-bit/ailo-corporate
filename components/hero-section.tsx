@@ -2,6 +2,7 @@
 
 import { Reveal } from '@/components/reveal'
 import { useLocale } from '@/components/locale-provider'
+import { withBasePath } from '@/lib/site-path'
 
 const copy = {
   ja: {
@@ -93,20 +94,20 @@ export function HeroSection() {
           <Reveal delay={320}>
             <div className="mt-14 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
-                href="?inquiry=consultation#contact"
+                href={withBasePath('/?inquiry=consultation#contact')}
                 className="inline-flex items-center justify-center bg-primary px-9 py-4 text-sm font-medium tracking-wide text-primary-foreground shadow-[0_0_40px_rgba(245,158,11,0.15)] transition-all hover:opacity-95 hover:shadow-[0_0_56px_rgba(245,158,11,0.26)]"
               >
                 {t.primaryCta}
               </a>
               <a
-                href="?inquiry=materials#contact"
+                href={withBasePath('/?inquiry=materials#contact')}
                 className="inline-flex items-center justify-center border border-slate-500 bg-slate-900/25 px-9 py-4 text-sm font-light tracking-wide text-slate-100 transition-colors hover:border-slate-300 hover:text-white"
               >
                 {t.secondaryCta}
               </a>
             </div>
             <a
-              href="#solutions"
+              href={withBasePath('/#solutions')}
               className="mt-4 inline-flex items-center gap-2 text-sm font-light tracking-wide text-slate-400 transition-colors hover:text-slate-200"
             >
               {t.viewSolutions}

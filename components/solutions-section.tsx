@@ -303,13 +303,13 @@ export function SolutionsSection() {
                   ) : null}
                   <div className="mt-8 flex flex-wrap gap-3">
                     <a
-                      href="?inquiry=consultation#contact"
+                      href={withBasePath('/?inquiry=consultation#contact')}
                       className="inline-flex items-center justify-center border border-primary/50 px-4 py-2 text-xs font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                     >
                       {t.consultCta}
                     </a>
                     <a
-                      href="?inquiry=materials#contact"
+                      href={withBasePath('/?inquiry=materials#contact')}
                       className="inline-flex items-center justify-center border border-border px-4 py-2 text-xs font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
                     >
                       {t.docsCta}
@@ -356,13 +356,13 @@ export function SolutionsSection() {
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <a
-                  href="?inquiry=consultation#contact"
+                  href={withBasePath('/?inquiry=consultation#contact')}
                   className="inline-flex items-center justify-center border border-primary/50 px-4 py-2 text-xs font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
                 >
                   {t.consultCta}
                 </a>
                 <a
-                  href="?inquiry=materials#contact"
+                  href={withBasePath('/?inquiry=materials#contact')}
                   className="inline-flex items-center justify-center border border-border px-4 py-2 text-xs font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
                 >
                   {t.docsCta}
