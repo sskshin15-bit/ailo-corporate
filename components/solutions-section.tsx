@@ -50,7 +50,7 @@ const copy: Record<
     tailoredHeading: '個別要件に応じた、エンタープライズ向け実装プログラムにも対応しています。',
     tailoredBody:
       '基幹システム連携、運用設計、法務・税務観点を含めた全体最適化まで、経営・現場の双方に寄り添う形で伴走いたします。',
-    imageAlt: '上質なホテルラウンジの内観',
+    imageAlt: '企業向けシステム連携を示すネットワーク図',
     solutions: [
       {
         tag: '次世代型 LINEモバイルオーダー ＆ AI-CRMシステム',
@@ -115,7 +115,7 @@ const copy: Record<
     tailoredHeading: 'We provide enterprise-grade implementation programs customized to specific requirements.',
     tailoredBody:
       'From core system integration and operational design to holistic optimization involving legal and tax considerations, we provide comprehensive support aligning with both management and frontline needs.',
-    imageAlt: 'A refined luxury hotel lobby',
+    imageAlt: 'Network diagram representing enterprise system integration',
     solutions: [
       {
         tag: 'Next-Gen LINE Mobile Order & AI-CRM',
@@ -180,7 +180,7 @@ const copy: Record<
     tailoredHeading: '我们可根据您的特定需求提供企业级的定制化实施方案。',
     tailoredBody:
       '从核心系统对接、运营设计，到包含法务与税务考量的全局优化，我们始终贴近管理层与业务一线，提供全方位陪伴支持。',
-    imageAlt: '高端酒店大堂',
+    imageAlt: '展示企业系统集成的网络示意图',
     solutions: [
       {
         tag: '新一代 LINE移动端点单与AI-CRM系统',
@@ -377,25 +377,35 @@ export function SolutionsSection() {
         </Reveal>
 
         <Reveal delay={140}>
-          <div className="mt-8 grid overflow-hidden border border-border/60 lg:grid-cols-2">
-            <div className="relative min-h-[260px] lg:min-h-full">
-              <Image
-                src={withBasePath('/luxury-hospitality.png')}
-                alt={t.imageAlt}
-                fill
-                className="object-cover"
+          <article className="mt-10 group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
+            <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
+              <span className="text-xs font-light tracking-[0.15em] text-primary">{t.tailoredTag}</span>
+              <ArrowUpRight
+                className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
+                aria-hidden="true"
               />
             </div>
-            <div className="flex flex-col justify-center bg-card p-10 lg:p-14">
-              <span className="text-xs font-light tracking-[0.2em] text-primary">{t.tailoredTag}</span>
-              <h3 className="mt-6 font-serif text-2xl font-light leading-snug text-foreground text-balance lg:text-3xl">
-                {t.tailoredHeading}
-              </h3>
-              <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-muted-foreground text-pretty">
+            <div className="flex flex-1 flex-col p-8">
+              <h3 className="text-2xl font-medium tracking-tight text-foreground">{t.tailoredHeading}</h3>
+              <p className="mt-6 max-w-3xl text-sm font-light leading-relaxed text-muted-foreground text-pretty">
                 {t.tailoredBody}
               </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a
+                  href={withBasePath('/?inquiry=consultation#contact')}
+                  className="inline-flex items-center justify-center border border-primary/50 px-4 py-2 text-xs font-light tracking-wide text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+                >
+                  {t.consultCta}
+                </a>
+                <a
+                  href={withBasePath('/?inquiry=materials#contact')}
+                  className="inline-flex items-center justify-center border border-border px-4 py-2 text-xs font-light tracking-wide text-foreground transition-colors hover:border-primary hover:text-primary"
+                >
+                  {t.docsCta}
+                </a>
+              </div>
             </div>
-          </div>
+          </article>
         </Reveal>
       </div>
     </section>
