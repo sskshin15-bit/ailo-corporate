@@ -11,7 +11,7 @@ const copy = {
     body:
       'グローバル展開企業から国内大手企業まで、Ailoは顧客体験を事業資産へ転換するための最適な設計・実装をご提案いたします。',
     headquarters: '本社',
-    address: '※実際の登記予定所在地（例：兵庫県神戸市）へご変更ください',
+    address: '兵庫県神戸市中央区磯辺通1-1-18 カサベラ国際プラザビル707号室',
     inquiries: 'お問い合わせ窓口',
     summary: 'エンタープライズ向けAI、リーガルテック、SaaSを統合した実装支援を提供しています。',
     rights: 'All rights reserved.',
@@ -39,7 +39,7 @@ const copy = {
     body:
       'From global hospitality groups to large enterprises, we help transform customer experience into durable business assets through tailored architecture and implementation.',
     headquarters: 'Headquarters',
-    address: 'Marunouchi, Chiyoda-ku, Tokyo, Japan',
+    address: 'Room 707, Casabella International Plaza Building, 1-1-18 Isobedori, Chuo-ku, Kobe, Hyogo, Japan',
     inquiries: 'General Inquiries',
     summary: 'Enterprise-grade AI, Legal-Tech, and SaaS implementation support.',
     rights: 'All rights reserved.',
@@ -67,7 +67,7 @@ const copy = {
     body:
       '无论是跨国集团还是大型企业，Ailo都可通过定制化架构与实施，助力客户体验沉淀为长期经营资产。',
     headquarters: '总部',
-    address: '日本东京都千代田区丸之内',
+    address: '日本兵库县神户市中央区矶边通1-1-18 卡萨贝拉国际广场大厦707室',
     inquiries: '咨询邮箱',
     summary: '提供面向企业的AI、法律科技与SaaS一体化实施支持。',
     rights: '版权所有。',
