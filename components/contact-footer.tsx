@@ -41,7 +41,9 @@ const copy = {
         heading: '法務・規約',
         links: [
           { label: 'プライバシーポリシー', href: '/privacy-policy' },
+          { label: 'Cookieポリシー', href: '/cookie-policy' },
           { label: '利用規約', href: '/terms' },
+          { label: '特定商取引法に基づく表記', href: '/legal-notice' },
         ],
       },
     ],
@@ -50,9 +52,9 @@ const copy = {
   },
   en: {
     label: 'Contact',
-    heading: 'Begin a confidential conversation.',
+    heading: 'Contact Us',
     body:
-      'From global hospitality groups to large enterprises, we help transform customer experience into durable business assets through tailored architecture and implementation.',
+      'From globally expanding companies to major domestic enterprises, Ailo provides tailored design and implementation to transform customer experience into durable business assets.',
     headquarters: 'Headquarters',
     address: 'Room 707, Casabella International Plaza Building, 1-1-18 Isobedori, Chuo-ku, Kobe, Hyogo, Japan',
     inquiries: 'General Inquiries',
@@ -83,7 +85,9 @@ const copy = {
         heading: 'Legal',
         links: [
           { label: 'Privacy Policy', href: '/privacy-policy' },
+          { label: 'Cookie Policy', href: '/cookie-policy' },
           { label: 'Terms of Service', href: '/terms' },
+          { label: 'Legal Notice', href: '/legal-notice' },
         ],
       },
     ],
@@ -92,9 +96,9 @@ const copy = {
   },
   zh: {
     label: '联系我们',
-    heading: '欢迎开启一场严格保密的商务对话。',
+    heading: '欢迎与我们联系',
     body:
-      '无论是跨国集团还是大型企业，Ailo都可通过定制化架构与实施，助力客户体验沉淀为长期经营资产。',
+      '无论是全球化企业还是本土大型企业，Ailo都可提供最优设计与实施方案，帮助将客户体验沉淀为长期经营资产。',
     headquarters: '总部',
     address: '日本兵库县神户市中央区矶边通1-1-18 卡萨贝拉国际广场大厦707室',
     inquiries: '咨询邮箱',
@@ -122,7 +126,9 @@ const copy = {
         heading: '法律与合规',
         links: [
           { label: '隐私政策', href: '/privacy-policy' },
+          { label: 'Cookie政策', href: '/cookie-policy' },
           { label: '服务条款', href: '/terms' },
+          { label: '特定商取引法标示', href: '/legal-notice' },
         ],
       },
     ],
@@ -157,7 +163,7 @@ export function ContactFooter() {
               </h2>
             </Reveal>
             <Reveal delay={160}>
-              <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-muted-foreground text-pretty">
+              <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-slate-400 text-pretty">
                 {t.body}
               </p>
             </Reveal>
@@ -165,13 +171,13 @@ export function ContactFooter() {
             <Reveal delay={240}>
               <dl className="mt-12 space-y-6">
                 <div>
-                  <dt className="text-xs font-light uppercase tracking-[0.2em] text-muted-foreground">
+                  <dt className="text-xs font-light uppercase tracking-[0.2em] text-slate-400">
                     {t.headquarters}
                   </dt>
                   <dd className="mt-2 text-sm font-light text-foreground">{t.address}</dd>
                 </div>
                 <div>
-                  <dt className="text-xs font-light uppercase tracking-[0.2em] text-muted-foreground">
+                  <dt className="text-xs font-light uppercase tracking-[0.2em] text-slate-400">
                     {t.inquiries}
                   </dt>
                   <dd className="mt-2 text-sm font-light text-foreground">contact@ailo.co.jp</dd>
@@ -194,7 +200,7 @@ export function ContactFooter() {
                 <span className="text-2xl font-medium tracking-[0.35em] text-foreground">AILO</span>
                 <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-primary" aria-hidden="true" />
               </a>
-              <p className="mt-5 max-w-xs text-xs font-light leading-relaxed text-muted-foreground">
+              <p className="mt-5 max-w-xs text-xs font-light leading-relaxed text-slate-400">
                 {t.summary}
               </p>
             </div>
@@ -209,7 +215,7 @@ export function ContactFooter() {
                     <li key={link.label}>
                       <a
                         href={withBasePath(link.href)}
-                        className="text-sm font-light text-muted-foreground transition-colors hover:text-primary"
+                        className="text-sm font-light text-slate-400 transition-colors hover:text-primary"
                       >
                         {link.label}
                       </a>
@@ -223,7 +229,7 @@ export function ContactFooter() {
       </div>
 
       <div className="border-t border-border/60">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-xs font-light text-muted-foreground sm:flex-row sm:items-center sm:justify-between lg:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-8 text-xs font-light text-slate-400 sm:flex-row sm:items-center sm:justify-between lg:px-10">
           <p>
             &copy; {new Date().getFullYear()} Ailo LLC. {t.rights}
           </p>

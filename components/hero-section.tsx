@@ -17,18 +17,18 @@ const copy = {
   },
   en: {
     heading1: 'Transform Customer Experience into Enduring Business Assets.',
-    heading2: 'Maximize time for human care through AI and rigorous compliance.',
+    heading2: 'Build next-generation infrastructure where advanced AI and human-centered operations work in harmony.',
     paragraph:
-      'Ailo combines AI architecture with behavioral economics to deliver creative technology. With legal and tax insight embedded into our compliance-first design, we serve as a trusted external CTO partner to drive safe and reliable operational transformation.',
+      'Ailo combines AI architecture with behavioral economics to deliver practical transformation. By embedding legal and tax perspectives into implementation design, we act as a trusted external CTO partner for secure and reliable execution.',
     primaryCta: 'Consultation',
     secondaryCta: 'Request Materials',
     viewSolutions: 'Explore Solutions',
   },
   zh: {
     heading1: '将客户体验沉淀为可持续的经营资产。',
-    heading2: '以AI与高标准合规体系，最大化“以人为本”的服务时间。',
+    heading2: '以先进AI与人本运营深度融合，构建下一代企业基础设施。',
     paragraph:
-      'Ailo融合AI架构与行为经济学方法论，打造兼具创造力与商业落地能力的技术服务。通过嵌入法务与税务知识的“合规优先”设计，我们以外部CTO伙伴的角色，推动安全、稳定且可持续的业务变革。',
+      'Ailo融合AI架构与行为经济学方法论，提供兼具创造力与落地性的技术实施。通过在实施设计中纳入法务与税务视角，我们以外部CTO伙伴身份，推动安全、稳定、可持续的业务升级。',
     primaryCta: '咨询洽谈',
     secondaryCta: '索取资料',
     viewSolutions: '查看核心方案',

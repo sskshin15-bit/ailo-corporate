@@ -59,6 +59,10 @@ const copy = {
         title: '12. 改定・お問い合わせ窓口',
         body: '当社は、法令改正や事業内容の変更等に応じて本ポリシーを改定することがあります。改定後の内容は当社ウェブサイトへの掲載時に効力を生じます。本ポリシーに関するお問い合わせは contact@ailo.co.jp までご連絡ください。',
       },
+      {
+        title: '13. 事業者情報',
+        body: '事業者名: 合同会社Ailo / 所在地: 兵庫県神戸市中央区磯辺通1-1-18 カサベラ国際プラザビル707号室 / 連絡先: contact@ailo.co.jp',
+      },
     ],
     backHome: 'トップページへ戻る',
   },
@@ -117,6 +121,10 @@ const copy = {
         title: '12. Changes and Contact',
         body: 'We may revise this Policy due to legal updates or operational changes. Revised terms become effective upon posting on our website unless otherwise specified. For inquiries, contact us at contact@ailo.co.jp.',
       },
+      {
+        title: '13. Business Information',
+        body: 'Business Name: Ailo LLC / Address: Room 707, Casabella International Plaza Building, 1-1-18 Isobedori, Chuo-ku, Kobe, Hyogo, Japan / Contact: contact@ailo.co.jp',
+      },
     ],
     backHome: 'Back to Home',
   },
@@ -174,6 +182,10 @@ const copy = {
       {
         title: '12. 政策更新与联系方式',
         body: '因法律变更或业务调整，本政策可能适时更新。更新内容发布于本公司网站后生效（另有说明除外）。如有疑问，请联系 contact@ailo.co.jp。',
+      },
+      {
+        title: '13. 经营者信息',
+        body: '经营者名称：Ailo合同会社 / 地址：日本兵库县神户市中央区矶边通1-1-18 卡萨贝拉国际广场大厦707室 / 联系方式：contact@ailo.co.jp',
       },
     ],
     backHome: '返回首页',

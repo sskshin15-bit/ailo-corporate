@@ -28,25 +28,25 @@ const copy = {
   },
   en: {
     label: 'Board Members',
-    heading: 'Leadership',
+    heading: 'Board Members',
     profileAria: 'profile',
     members: [
       {
         name: 'Shintaro Sasaki',
-        role: 'Chief Executive Officer',
+        role: 'Representative / CEO',
         image: '/board-ceo.png',
-        bio: 'Leads digital marketing, UI/UX strategy, and business development. A specialist in engagement design through rich media, he drives customer experience architecture that encourages natural user behavior and translates complex requirements into intuitive products.',
+        bio: 'Leads digital marketing, UI/UX strategy, and business development. As a specialist in rich-media engagement design, he drives customer experience architecture that encourages natural user behavior and translates complex requirements into intuitive products.',
       },
       {
         name: 'Yo Kogure',
         role: 'Co-Founder / CTO',
         image: '/board-cto.png',
-        bio: 'Oversees system architecture, AI development, and data analytics. He leverages experience from data science operations at a leading major advertising agency and leads globally aligned, secure infrastructure design with advanced mathematical models and algorithms.',
+        bio: 'Oversees system architecture, AI development, and data analytics. Drawing on data science experience from one of Japan\'s leading advertising groups, he leads globally aligned secure infrastructure design through advanced mathematical models and algorithms.',
       },
     ],
   },
   zh: {
-    label: '管理团队',
+    label: '经营团队',
     heading: 'Board Members',
     profileAria: '个人资料',
     members: [
@@ -111,7 +111,7 @@ export function BoardSection() {
                     {member.role}
                   </p>
                   <p
-                    className="mt-5 text-sm font-light leading-relaxed text-muted-foreground text-pretty"
+                    className="mt-5 text-sm font-light leading-relaxed text-slate-400 text-pretty"
                     dangerouslySetInnerHTML={{ __html: member.bio }}
                   />
                   <a

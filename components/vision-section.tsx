@@ -20,19 +20,31 @@ const copy = {
   },
   en: {
     label: 'Our Vision',
-    heading: 'Empowering business with AI, care, and connection.',
-    paragraph1:
-      'The name "Ailo" carries three ideas: "AI" for advanced intelligence, "Ai (Love)" for empathy that supports people, and "O" for a circle of lasting connection and value.',
-    paragraph2:
-      'We build infrastructure that automates non-productive work so people can maximize the time they spend caring for other people.',
+    heading: 'Conquer the coming AI bottleneck and create a cycle of care and connection beyond it.',
+    intro:
+      'The name Ailo carries two layers of meaning: the mission we must fulfill and the philosophy we choose to uphold.',
+    missionTitle: 'Mission: AI as a Strategic Bottleneck',
+    missionBody:
+      'In the years ahead, AI will be more than a convenient tool. It will become a strategic bottleneck that shapes corporate survival. The real question is how to govern it and embed it into your business with confidence. As your external CTO partner, we tackle this defining challenge and open a practical path through AI complexity.',
+    philosophyTitle: 'Philosophy: AI, Love, and O',
+    philosophyBody:
+      'Beyond technical execution, we pursue the integration of three ideals: refined AI capability, human care enabled by regained time, and a lasting circle of value and connection.',
+    closing:
+      'By breaking through this era\'s bottlenecks with technology, we build next-generation infrastructure that maximizes time for people to care for people.',
   },
   zh: {
     label: 'Our Vision',
-    heading: '以强大的AI之力，为商业注入「关爱」与「连接」。',
-    paragraph1:
-      'Ailo 这一名称承载三重含义：「AI（人工智能）」、「爱」以及代表循环与连接的「O（环）」。',
-    paragraph2:
-      '我们致力于用技术将非生产性工作最大限度自动化，让人把更多时间用于真正关怀他人的价值创造。',
+    heading: '穿越AI时代的关键“隘路”，在其后构建“关爱”与“连接”的价值循环。',
+    intro:
+      'Ailo 这一名称承载两层核心含义：我们必须完成的使命，以及始终坚持的哲学。',
+    missionTitle: '使命：作为“隘路”的AI',
+    missionBody:
+      '在未来商业竞争中，AI不只是提升效率的工具，更是影响企业生存的关键要冲。如何驾驭这项强大技术，并将其稳健融入自身业务。我们将以外部CTO伙伴身份，帮助企业穿越这一时代级瓶颈。',
+    philosophyTitle: '哲学：AI・爱・O',
+    philosophyBody:
+      '在技术要冲被攻克之后，我们追求三种理想的融合：高度进化的AI能力、由技术释放出来的人文关怀，以及可持续流动的价值与连接。',
+    closing:
+      '我们以技术突破时代“隘路”，构建下一代基础设施，让“人关怀人”的时间被最大化释放。',
   },
 } as const
 
@@ -54,58 +66,30 @@ export function VisionSection() {
 
           <Reveal delay={90}>
             <h2 className="font-serif text-3xl font-light leading-tight text-white text-balance lg:text-5xl">
-              {locale === 'ja' ? (
-                <>
-                  迫り来る
-                  <span className="text-amber-400">AI</span>
-                  という「
-                  <span className="text-amber-300">隘路</span>
-                  」を制し、
-                  <br className="hidden md:block" />
-                  その先に「
-                  <span className="text-amber-300">愛</span>
-                  」と「
-                  <span className="text-amber-200">繋がり</span>
-                  」の循環を創る。
-                </>
-              ) : (
-                t.heading
-              )}
+              {t.heading}
             </h2>
           </Reveal>
 
           <Reveal delay={180}>
-            <p className="mt-10 text-base font-light leading-relaxed text-slate-300 text-pretty">
-              {locale === 'ja' ? (
-                t.intro
-              ) : (
-                t.paragraph1
-              )}
+            <p className="mt-10 text-base font-light leading-relaxed text-slate-400 text-pretty">
+              {t.intro}
             </p>
           </Reveal>
 
           <Reveal delay={260}>
-            {locale === 'ja' ? (
-              <div className="mt-8 space-y-7">
-                <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">
-                  <span className="font-medium text-amber-400">{t.missionTitle}</span>
-                  <br />
-                  {t.missionBody}
-                </p>
-                <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">
-                  <span className="font-medium text-amber-400">{t.philosophyTitle}</span>
-                  <br />
-                  {t.philosophyBody}
-                </p>
-                <p className="text-base font-light leading-relaxed text-slate-200 text-pretty">
-                  {t.closing}
-                </p>
-              </div>
-            ) : (
-              <p className="mt-7 text-base font-light leading-relaxed text-slate-400 text-pretty">
-                {t.paragraph2}
+            <div className="mt-8 space-y-7">
+              <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">
+                <span className="font-medium text-primary">{t.missionTitle}</span>
+                <br />
+                {t.missionBody}
               </p>
-            )}
+              <p className="text-base font-light leading-relaxed text-slate-400 text-pretty">
+                <span className="font-medium text-primary">{t.philosophyTitle}</span>
+                <br />
+                {t.philosophyBody}
+              </p>
+              <p className="text-base font-light leading-relaxed text-slate-300 text-pretty">{t.closing}</p>
+            </div>
           </Reveal>
         </div>
       </div>

@@ -67,6 +67,10 @@ const copy = {
         title: '14. 準拠法・管轄および連絡先',
         body: '本規約は日本法に準拠し、本規約またはサービスに関連して紛争が生じた場合、当社本店所在地を管轄する裁判所を第一審の専属的合意管轄裁判所とします。本規約に関するお問い合わせは contact@ailo.co.jp までご連絡ください。',
       },
+      {
+        title: '15. 事業者情報',
+        body: '事業者名: 合同会社Ailo / 所在地: 兵庫県神戸市中央区磯辺通1-1-18 カサベラ国際プラザビル707号室 / 連絡先: contact@ailo.co.jp',
+      },
     ],
     backHome: 'トップページへ戻る',
   },
@@ -133,6 +137,10 @@ const copy = {
         title: '14. Governing Law, Jurisdiction, and Contact',
         body: 'These Terms are governed by Japanese law. Any dispute related to these Terms or services shall be subject to the exclusive jurisdiction of the court having jurisdiction over our head office location as the court of first instance. For inquiries, contact contact@ailo.co.jp.',
       },
+      {
+        title: '15. Business Information',
+        body: 'Business Name: Ailo LLC / Address: Room 707, Casabella International Plaza Building, 1-1-18 Isobedori, Chuo-ku, Kobe, Hyogo, Japan / Contact: contact@ailo.co.jp',
+      },
     ],
     backHome: 'Back to Home',
   },
@@ -198,6 +206,10 @@ const copy = {
       {
         title: '14. 准据法、管辖与联系方式',
         body: '本条款适用日本法律。因本条款或服务产生的争议，以对本公司总部所在地有管辖权的法院作为第一审专属管辖法院。如有疑问，请联系 contact@ailo.co.jp。',
+      },
+      {
+        title: '15. 经营者信息',
+        body: '经营者名称：Ailo合同会社 / 地址：日本兵库县神户市中央区矶边通1-1-18 卡萨贝拉国际广场大厦707室 / 联系方式：contact@ailo.co.jp',
       },
     ],
     backHome: '返回首页',

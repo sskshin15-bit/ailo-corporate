@@ -17,6 +17,7 @@ const notoSansJP = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://ailo.co.jp'),
   title: '合同会社Ailo | エンタープライズ向けAI・リーガルテック・SaaS',
   description:
     '合同会社Ailoは、エンタープライズ企業向けにAI・リーガルテック・SaaSを統合した実装支援を提供します。顧客体験を、確かな事業資産へ。',

@@ -23,7 +23,7 @@ const copy = {
         title: '先端AI・データサイエンス',
         subtitle: '高度な数理モデルによる業務の自律化',
         description:
-          '第一線で活躍するデータサイエンティストがアーキテクチャ設計を統括。最新の生成AIを活用したアジャイル開発体制により、市場の変化に即座に適応するプロダクトを構築します。単なる業務効率化に留まらず、取得したデータをAIが解析し、CRM（顧客関係管理）やHRアナリティクスへと昇華。日々のオペレーション業務を、持続可能なデータ資産へと変換する精緻なアルゴリズムを提供します。',
+          '第一線で活躍するデータサイエンティストがアーキテクチャ設計を統括。最新の生成AIを活用したアジャイル開発体制により、市場の変化に即座に適応するプロダクトを構築します。単なる業務効率化に留まらず、取得したデータをAIが解析し、CRMやHRアナリティクスへと昇華。日々のオペレーションを、持続可能なデータ資産へと変換します。',
       },
       {
         icon: ShieldCheck,
@@ -31,7 +31,7 @@ const copy = {
         title: 'リーガルテック・セキュリティ',
         subtitle: '専門家ネットワーク連携による強固な運用基盤',
         description:
-          '大企業様が求める厳格なセキュリティ要件を満たすため、公的支援ネットワーク等を通じた弁護士への適法性確認や、顧問税理士による税務スキームの監修など、外部専門家と強固に連携。資金決済法や労働基準法等の複雑な法的課題をシステム設計の段階から考慮し、導入企業様がコンプライアンスリスクを極小化して運用できる安全な基盤を構築しています。',
+          '大企業様が求める厳格なセキュリティ要件を満たすため、公的支援ネットワーク等を通じた弁護士への適法性確認や、顧問税理士による税務スキームの監修など、外部専門家と強固に連携。複雑な法的課題をシステム設計の段階から考慮し、導入企業様がコンプライアンスリスクを極小化して運用できる安全な基盤を構築しています。',
       },
     ],
   },
@@ -53,7 +53,7 @@ const copy = {
         title: 'Advanced AI & Data Science',
         subtitle: 'Autonomous operations driven by advanced models',
         description:
-          'Leading data scientists oversee our architecture design. With agile development powered by generative AI, we build products that adapt quickly to market changes. Beyond efficiency gains, our algorithms turn operational data into sustainable assets for CRM and HR analytics.',
+          'Leading data scientists oversee our architecture design. With agile development powered by generative AI, we build products that adapt quickly to market changes. Beyond efficiency gains, AI analyzes operational data and elevates it into strategic assets for CRM and HR analytics.',
       },
       {
         icon: ShieldCheck,
@@ -61,7 +61,7 @@ const copy = {
         title: 'Legal-Tech & Security',
         subtitle: 'Resilient operations through expert collaboration',
         description:
-          'To meet enterprise-level security requirements, we collaborate closely with external legal and tax experts. Complex issues such as payment and labor regulations are considered at the system design stage, helping clients operate with minimized compliance risk.',
+          'To meet enterprise-level security requirements, we collaborate closely with external legal and tax experts. We address complex legal considerations from the system design stage, helping clients operate on a secure foundation with minimized compliance risk.',
       },
     ],
   },
@@ -83,7 +83,7 @@ const copy = {
         title: 'Advanced AI & Data Science',
         subtitle: '以高级数理模型实现业务自治',
         description:
-          '由资深数据科学家主导架构设计，结合生成式AI的敏捷开发体系，快速构建适应市场变化的产品。不止于效率提升，我们将业务数据升级为可持续的数据资产，服务于CRM与HR分析。',
+          '由资深数据科学家主导架构设计，结合生成式AI的敏捷开发体系，快速构建适应市场变化的产品。不止于效率提升，我们让AI深度解析业务数据，并将其沉淀为服务于CRM与HR分析的可持续数据资产。',
       },
       {
         icon: ShieldCheck,
@@ -91,7 +91,7 @@ const copy = {
         title: 'Legal-Tech & Security',
         subtitle: '专家网络协同打造稳健运营底座',
         description:
-          '为满足大型企业的严苛安全要求，我们与外部法律与税务专家紧密协作。在系统设计阶段即纳入支付法、劳动法等复杂合规议题，帮助导入企业将合规风险降至最低。',
+          '为满足大型企业的严苛安全要求，我们与外部法律与税务专家紧密协作。在系统设计阶段即纳入复杂法律议题，帮助导入企业在稳健基础上将合规风险降至最低。',
       },
     ],
   },
@@ -143,7 +143,7 @@ export function StrengthsSection() {
                 <p className="mb-4 text-sm font-light leading-relaxed text-primary text-pretty">
                   {pillar.subtitle}
                 </p>
-                <p className="text-sm font-light leading-relaxed text-muted-foreground text-pretty">
+                <p className="text-sm font-light leading-relaxed text-slate-400 text-pretty">
                   {pillar.description}
                 </p>
               </article>
