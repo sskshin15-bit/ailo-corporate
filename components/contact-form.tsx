@@ -4,6 +4,9 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { Lock, Check } from 'lucide-react'
 import { useLocale } from '@/components/locale-provider'
 
+const CONTACT_EMAIL = 'contact@ailo.co.jp'
+const FORMSUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_EMAIL}`
+
 const copy = {
   ja: {
     thanksTitle: 'ありがとうございます。',
@@ -24,6 +27,8 @@ const copy = {
     messagePlaceholder: '貴社の課題やご相談内容をご記入ください。',
     secure: '通信は暗号化され、厳重な機密管理のもとで取り扱います',
     submit: '送信する',
+    submitting: '送信中...',
+    submitError: '送信に失敗しました。時間をおいて再度お試しください。',
   },
   en: {
     thanksTitle: 'Thank you.',
@@ -43,6 +48,8 @@ const copy = {
     messagePlaceholder: 'Tell us about your organization and objectives.',
     secure: 'Encrypted and handled with strict confidentiality',
     submit: 'Submit Inquiry',
+    submitting: 'Sending...',
+    submitError: 'Failed to send. Please try again shortly.',
   },
   zh: {
     thanksTitle: '感谢您的咨询。',
@@ -62,11 +69,15 @@ const copy = {
     messagePlaceholder: '请填写贵公司的需求与目标。',
     secure: '信息将加密传输并严格保密处理',
     submit: '提交咨询',
+    submitting: '发送中...',
+    submitError: '发送失败，请稍后重试。',
   },
 } as const
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState<string | null>(null)
   const [inquiryType, setInquiryType] = useState<'consultation' | 'materials' | 'careers'>('consultation')
   const { locale } = useLocale()
   const t = copy[locale]
@@ -78,9 +89,43 @@ export function ContactForm() {
     }
   }, [])
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setSubmitted(true)
+    if (isSubmitting) return
+
+    setSubmitError(null)
+    setIsSubmitting(true)
+
+    try {
+      const formElement = e.currentTarget
+      const formData = new FormData(formElement)
+
+      formData.append('_subject', `[AILO Contact] ${inquiryType}`)
+      formData.append('_template', 'table')
+      formData.append('_captcha', 'true')
+      formData.append('_autoresponse', 'お問い合わせありがとうございます。内容を確認し、担当よりご連絡いたします。')
+      formData.append('locale', locale)
+
+      const response = await fetch(FORMSUBMIT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+        },
+        body: formData,
+      })
+
+      if (!response.ok) {
+        throw new Error(`Request failed: ${response.status}`)
+      }
+
+      setSubmitted(true)
+      formElement.reset()
+      setInquiryType('consultation')
+    } catch {
+      setSubmitError(t.submitError)
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   if (submitted) {
@@ -163,11 +208,13 @@ export function ContactForm() {
         </p>
         <button
           type="submit"
+          disabled={isSubmitting}
           className="bg-primary px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground transition-opacity hover:opacity-90"
         >
-          {t.submit}
+          {isSubmitting ? t.submitting : t.submit}
         </button>
       </div>
+      {submitError ? <p className="mt-4 text-sm text-red-300">{submitError}</p> : null}
     </form>
   )
 }
