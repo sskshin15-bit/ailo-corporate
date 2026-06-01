@@ -24,6 +24,7 @@ const copy = {
         name: '',
         role: '共同創業者 / CTO',
         image: '/board-cto-20260601.png',
+        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem]',
         nameImage: '/board-member-k2-name.png',
         bio: 'システムアーキテクチャ、AI開発、データアナリティクス統括。国内最大手総合広告代理店におけるデータサイエンス業務の知見を活用。American Mathematical Olympiad金メダル獲得、海外大学飛び級進学等の圧倒的な論理的思考力と、日・英・中のトリリンガルとしての語学力を有する。高度な数理モデルとアルゴリズムの設計により、グローバル水準のセキュアなインフラ構築を統括する。',
       },
@@ -45,6 +46,7 @@ const copy = {
         name: '',
         role: 'Co-Founder / CTO',
         image: '/board-cto-20260601.png',
+        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem]',
         nameImage: '/board-member-k2-name.png',
         bio: 'Oversees system architecture, AI development, and data analytics. Drawing on data science experience from one of Japan\'s leading advertising groups, he leads globally aligned secure infrastructure design through advanced mathematical models and algorithms.',
       },
@@ -66,6 +68,7 @@ const copy = {
         name: '',
         role: '联合创始人 / CTO',
         image: '/board-cto-20260601.png',
+        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem]',
         nameImage: '/board-member-k2-name.png',
         bio: '全面统筹系统架构、AI开发及数据分析。凭借在日本最大综合广告代理公司积累的数据科学经验，以及卓越的逻辑思考能力和精通中英日三语的优势，负责设计高级数理模型及安全的全球化基础设施。',
       },
@@ -111,7 +114,7 @@ export function BoardSection() {
                     src={withBasePath(member.image || '/placeholder.svg')}
                     alt={member.name ? `Portrait of ${member.name}` : 'Board member portrait'}
                     fill
-                    className={`object-cover transition-all duration-700 group-hover:grayscale-0 ${activeMemberIndex === i ? 'grayscale-0' : 'grayscale'}`}
+                    className={`object-cover transition-all duration-700 group-hover:grayscale-0 ${activeMemberIndex === i ? 'grayscale-0' : 'grayscale'} ${member.portraitClass ?? ''}`}
                   />
                 </div>
                 <div className="flex flex-1 flex-col justify-center p-8">
