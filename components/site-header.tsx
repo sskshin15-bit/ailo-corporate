@@ -82,9 +82,9 @@ export function SiteHeader() {
           : 'border-b border-transparent bg-transparent',
       )}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
+      <div className="mx-auto flex h-[4.5rem] max-w-7xl items-center justify-between px-5 sm:h-20 sm:px-6 lg:px-10">
         <a href={withBasePath('/#top')} className="flex items-baseline gap-2" aria-label={t.homeAria}>
-          <span className="text-2xl font-medium tracking-[0.35em] text-foreground">AILO</span>
+          <span className="text-xl font-medium tracking-[0.26em] text-foreground sm:text-2xl sm:tracking-[0.35em]">AILO</span>
           <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-primary" aria-hidden="true" />
         </a>
 
@@ -134,7 +134,7 @@ export function SiteHeader() {
 
         <button
           type="button"
-          className="text-foreground md:hidden"
+          className="rounded-sm p-1 text-foreground md:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? t.closeMenu : t.openMenu}
           aria-expanded={open}

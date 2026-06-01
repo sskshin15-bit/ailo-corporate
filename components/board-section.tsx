@@ -4,10 +4,26 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Linkedin } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { useLocale } from '@/components/locale-provider'
+import { useLocale, type Locale } from '@/components/locale-provider'
 import { withBasePath } from '@/lib/site-path'
 
-const copy = {
+type BoardMember = {
+  name: string
+  role: string
+  image: string
+  nameImage?: string
+  portraitClass?: string
+  bio: string
+}
+
+type BoardCopy = {
+  label: string
+  heading: string
+  profileAria: string
+  members: BoardMember[]
+}
+
+const copy: Record<Locale, BoardCopy> = {
   ja: {
     label: '経営陣',
     heading: '経営メンバー',
@@ -24,7 +40,7 @@ const copy = {
         name: '',
         role: '共同創業者 / CTO',
         image: '/board-cto-20260601.png',
-        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem] lg:-translate-y-[5.75rem]',
+        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem] lg:-translate-y-[5.25rem]',
         nameImage: '/board-member-k2-name.png',
         bio: 'システムアーキテクチャ、AI開発、データアナリティクス統括。国内最大手総合広告代理店におけるデータサイエンス業務の知見を活用。American Mathematical Olympiad金メダル獲得、海外大学飛び級進学等の圧倒的な論理的思考力と、日・英・中のトリリンガルとしての語学力を有する。高度な数理モデルとアルゴリズムの設計により、グローバル水準のセキュアなインフラ構築を統括する。',
       },
@@ -46,7 +62,7 @@ const copy = {
         name: '',
         role: 'Co-Founder / CTO',
         image: '/board-cto-20260601.png',
-        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem] lg:-translate-y-[5.75rem]',
+        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem] lg:-translate-y-[5.25rem]',
         nameImage: '/board-member-k2-name.png',
         bio: 'Oversees system architecture, AI development, and data analytics. Drawing on data science experience from one of Japan\'s leading advertising groups, he leads globally aligned secure infrastructure design through advanced mathematical models and algorithms.',
       },
@@ -68,13 +84,13 @@ const copy = {
         name: '',
         role: '联合创始人 / CTO',
         image: '/board-cto-20260601.png',
-        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem] lg:-translate-y-[5.75rem]',
+        portraitClass: 'object-top scale-[1.3] origin-top -translate-y-[6.25rem] lg:-translate-y-[5.25rem]',
         nameImage: '/board-member-k2-name.png',
         bio: '全面统筹系统架构、AI开发及数据分析。凭借在日本最大综合广告代理公司积累的数据科学经验，以及卓越的逻辑思考能力和精通中英日三语的优势，负责设计高级数理模型及安全的全球化基础设施。',
       },
     ],
   },
-} as const
+}
 
 export function BoardSection() {
   const { locale } = useLocale()
@@ -84,20 +100,20 @@ export function BoardSection() {
   return (
     <section
       id="leadership"
-      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-28 lg:py-36"
+      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-20 md:py-28 lg:py-36"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <Reveal>
-          <div className="mb-16 flex items-center gap-4">
+          <div className="mb-12 flex items-center gap-3 sm:mb-16 sm:gap-4">
             <span className="h-px w-12 bg-primary" aria-hidden="true" />
-            <span className="text-xs font-light uppercase tracking-[0.4em] text-primary">
+            <span className="text-[11px] font-light uppercase tracking-[0.24em] text-primary sm:text-xs sm:tracking-[0.4em]">
               {t.label}
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mb-20 max-w-3xl font-serif text-3xl font-light leading-tight text-foreground text-balance lg:text-5xl">
+          <h2 className="mb-12 max-w-3xl font-serif text-3xl font-light leading-tight text-foreground text-balance sm:mb-20 lg:text-5xl">
             {t.heading}
           </h2>
         </Reveal>
@@ -105,27 +121,30 @@ export function BoardSection() {
         <div className="grid gap-8 md:grid-cols-2">
           {t.members.map((member, i) => (
             <Reveal key={`${member.role}-${i}`} delay={i * 140}>
-              <article
-                className="group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50 sm:flex-row"
-                onClick={() => setActiveMemberIndex((current) => (current === i ? null : i))}
-              >
-                <div className="relative h-64 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48">
+              <article className="group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50 sm:flex-row">
+                <button
+                  type="button"
+                  className="relative block h-64 w-full shrink-0 overflow-hidden text-left sm:h-auto sm:w-48"
+                  onClick={() => setActiveMemberIndex((current) => (current === i ? null : i))}
+                  aria-pressed={activeMemberIndex === i}
+                  aria-label={`${member.role} portrait`}
+                >
                   <Image
                     src={withBasePath(member.image || '/placeholder.svg')}
                     alt={member.name ? `Portrait of ${member.name}` : 'Board member portrait'}
                     fill
                     className={`object-cover transition-all duration-700 group-hover:grayscale-0 ${activeMemberIndex === i ? 'grayscale-0' : 'grayscale'} ${member.portraitClass ?? ''}`}
                   />
-                </div>
-                <div className="flex flex-1 flex-col justify-center p-8">
+                </button>
+                <div className="flex flex-1 flex-col justify-center p-6 sm:p-8">
                   <h3 className="text-xl font-medium tracking-tight text-foreground">
                     {member.nameImage ? (
                       <Image
                         src={withBasePath(member.nameImage)}
                         alt=""
-                        width={220}
-                        height={70}
-                        className="h-auto w-[210px] max-w-full"
+                        width={840}
+                        height={170}
+                        className="h-11 w-auto max-w-full object-contain"
                         aria-hidden="true"
                       />
                     ) : (

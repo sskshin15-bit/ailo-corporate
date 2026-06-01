@@ -41,7 +41,7 @@ export function HeroSection() {
   const heroPhotoUrl = withBasePath('/hero-luxury-corridor.png')
 
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden py-32 lg:py-40">
+    <section id="top" className="relative flex min-h-screen items-center overflow-hidden py-24 md:py-32 lg:py-40">
       <div
         className="absolute inset-0 scale-95 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url("${heroPhotoUrl}")` }}
@@ -49,19 +49,19 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 bg-[#0A192F]/85" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <div className="relative z-10 max-w-4xl text-left">
           <Reveal>
-            <h1 className="whitespace-pre-line font-serif text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_3px_18px_rgba(2,8,23,0.65)] sm:text-6xl lg:text-6xl">
+            <h1 className="whitespace-pre-line font-serif text-4xl font-extrabold leading-tight tracking-tight text-white drop-shadow-[0_3px_18px_rgba(2,8,23,0.65)] sm:text-6xl lg:text-6xl">
               {locale === 'ja' ? (
                 <>
                   ビジネスの「
-                  <span className="relative inline-block px-1 text-amber-300">
-                    <span className="absolute -top-5 left-1/2 -translate-x-1/2 whitespace-nowrap text-[0.28em] font-sans tracking-[0.2em] text-amber-200">
-                      AILO
-                    </span>
+                  <ruby className="relative inline-flex items-end px-1 text-amber-300 sm:inline-block">
                     隘路
-                  </span>
+                    <rt className="translate-y-[-0.06em] whitespace-nowrap text-[0.26em] font-sans font-medium tracking-[0.16em] text-amber-200 sm:absolute sm:-top-5 sm:left-1/2 sm:translate-y-0 sm:-translate-x-1/2 sm:text-[0.28em] sm:tracking-[0.2em]">
+                      AILO
+                    </rt>
+                  </ruby>
                   」を切り拓き、
                   <br />
                   人を想う「<span className="text-amber-200">繋がり</span>」を創り出す。
@@ -73,28 +73,28 @@ export function HeroSection() {
           </Reveal>
 
           <Reveal delay={120}>
-            <h2 className="mt-10 max-w-3xl text-lg font-normal leading-relaxed text-slate-300 lg:text-xl">
+            <h2 className="mt-8 max-w-3xl text-base font-normal leading-relaxed text-slate-300 sm:mt-10 sm:text-lg lg:text-xl">
               {t.heading2}
             </h2>
           </Reveal>
 
           <Reveal delay={220}>
-            <p className="mt-10 max-w-2xl text-sm leading-relaxed text-slate-400 sm:text-base">
+            <p className="mt-8 max-w-2xl text-sm leading-relaxed text-slate-400 sm:mt-10 sm:text-base">
               {t.paragraph}
             </p>
           </Reveal>
 
           <Reveal delay={320}>
-            <div className="relative z-10 mt-16 flex flex-col gap-5 sm:flex-row sm:items-center">
+            <div className="relative z-10 mt-12 flex flex-col gap-4 sm:mt-16 sm:flex-row sm:items-center sm:gap-5">
               <a
                 href={withBasePath('/?inquiry=consultation#contact')}
-                className="inline-flex items-center justify-center bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-200 px-9 py-4 text-sm font-semibold tracking-wide text-slate-900 shadow-[0_10px_38px_rgba(251,191,36,0.24)] transition-all hover:translate-y-[-1px] hover:shadow-[0_14px_50px_rgba(251,191,36,0.34)]"
+                className="inline-flex w-full items-center justify-center bg-gradient-to-r from-amber-300 via-amber-200 to-yellow-200 px-8 py-3.5 text-sm font-semibold tracking-wide text-slate-900 shadow-[0_10px_38px_rgba(251,191,36,0.24)] transition-all hover:translate-y-[-1px] hover:shadow-[0_14px_50px_rgba(251,191,36,0.34)] sm:w-auto sm:px-9 sm:py-4"
               >
                 {t.primaryCta}
               </a>
               <a
                 href={withBasePath('/?inquiry=materials#contact')}
-                className="inline-flex items-center justify-center border border-slate-300/35 bg-slate-900/35 px-9 py-4 text-sm font-medium tracking-wide text-slate-100 backdrop-blur-sm transition-colors hover:border-amber-200/60 hover:text-amber-50"
+                className="inline-flex w-full items-center justify-center border border-slate-300/35 bg-slate-900/35 px-8 py-3.5 text-sm font-medium tracking-wide text-slate-100 backdrop-blur-sm transition-colors hover:border-amber-200/60 hover:text-amber-50 sm:w-auto sm:px-9 sm:py-4"
               >
                 {t.secondaryCta}
               </a>

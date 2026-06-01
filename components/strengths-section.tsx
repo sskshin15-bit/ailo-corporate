@@ -104,20 +104,20 @@ export function StrengthsSection() {
   return (
     <section
       id="strengths"
-      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-28 lg:py-36"
+      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-20 md:py-28 lg:py-36"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <Reveal>
-          <div className="mb-16 flex items-center gap-4">
+          <div className="mb-12 flex items-center gap-3 sm:mb-16 sm:gap-4">
             <span className="h-px w-12 bg-primary" aria-hidden="true" />
-            <span className="text-xs font-light uppercase tracking-[0.4em] text-primary">
+            <span className="text-[11px] font-light uppercase tracking-[0.24em] text-primary sm:text-xs sm:tracking-[0.4em]">
               {t.label}
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={80}>
-          <h2 className="mb-20 max-w-3xl font-serif text-3xl font-light leading-tight text-foreground text-balance lg:text-5xl">
+          <h2 className="mb-12 max-w-3xl font-serif text-3xl font-light leading-tight text-foreground text-balance sm:mb-20 lg:text-5xl">
             {t.heading}
           </h2>
         </Reveal>
@@ -125,8 +125,8 @@ export function StrengthsSection() {
         <div className="grid gap-px overflow-hidden border border-border/60 bg-border/60 md:grid-cols-3">
           {t.pillars.map((pillar, i) => (
             <Reveal key={pillar.number} delay={i * 120} className="bg-background">
-              <article className="group flex h-full flex-col p-10 transition-colors duration-500 hover:bg-card lg:p-12">
-                <div className="mb-10 flex items-center justify-between">
+              <article className="group flex h-full flex-col p-6 transition-colors duration-500 hover:bg-card sm:p-8 lg:p-12">
+                <div className="mb-8 flex items-center justify-between sm:mb-10">
                   <span
                     className="flex h-14 w-14 items-center justify-center border border-primary/40 text-primary transition-colors duration-500 group-hover:bg-primary group-hover:text-primary-foreground"
                     aria-hidden="true"

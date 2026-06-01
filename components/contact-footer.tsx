@@ -146,13 +146,13 @@ export function ContactFooter() {
       id="contact"
       className="border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#14274a_100%)]"
     >
-      <div className="mx-auto max-w-7xl px-6 py-28 lg:px-10 lg:py-36">
+      <div className="mx-auto max-w-7xl px-5 py-20 sm:px-6 md:py-28 lg:px-10 lg:py-36">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
             <Reveal>
-              <div className="mb-8 flex items-center gap-4">
+              <div className="mb-8 flex items-center gap-3 sm:gap-4">
                 <span className="h-px w-12 bg-primary" aria-hidden="true" />
-                <span className="text-xs font-light uppercase tracking-[0.4em] text-primary">
+                <span className="text-[11px] font-light uppercase tracking-[0.24em] text-primary sm:text-xs sm:tracking-[0.4em]">
                   {t.label}
                 </span>
               </div>
@@ -194,10 +194,12 @@ export function ContactFooter() {
 
       <div className="border-t border-border/60">
         <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-          <div className="grid gap-12 md:grid-cols-4">
+          <div className="grid gap-10 md:grid-cols-4 md:gap-12">
             <div>
               <a href={withBasePath('/#top')} className="flex items-baseline gap-2" aria-label={t.homeAria}>
-                <span className="text-2xl font-medium tracking-[0.35em] text-foreground">AILO</span>
+                <span className="text-xl font-medium tracking-[0.26em] text-foreground sm:text-2xl sm:tracking-[0.35em]">
+                  AILO
+                </span>
                 <span className="h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-primary" aria-hidden="true" />
               </a>
               <p className="mt-5 max-w-xs text-xs font-light leading-relaxed text-slate-400">

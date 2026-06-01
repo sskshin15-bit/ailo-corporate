@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { useLocale } from '@/components/locale-provider'
@@ -248,15 +247,17 @@ export function SolutionsSection() {
   return (
     <section
       id="solutions"
-      className="relative scroll-mt-28 border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#122445_100%)] py-28 lg:py-36"
+      className="relative scroll-mt-28 border-t border-border/60 bg-[linear-gradient(180deg,#101f3a_0%,#122445_100%)] py-20 md:py-28 lg:py-36"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mb-16 flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
+        <div className="mb-12 flex flex-col gap-8 sm:mb-16 sm:gap-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <Reveal>
-              <div className="mb-8 flex items-center gap-4">
+              <div className="mb-6 flex items-center gap-3 sm:mb-8 sm:gap-4">
                 <span className="h-px w-12 bg-primary" aria-hidden="true" />
-                <span className="text-xs font-light tracking-[0.2em] text-primary">{t.label}</span>
+                <span className="text-[11px] font-light tracking-[0.14em] text-primary sm:text-xs sm:tracking-[0.2em]">
+                  {t.label}
+                </span>
               </div>
             </Reveal>
             <Reveal delay={80}>
@@ -279,15 +280,15 @@ export function SolutionsSection() {
                 id={solutionAnchors[i]}
                 className="group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50"
               >
-                <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
+                <div className="flex items-center justify-between border-b border-border/60 px-5 py-5 sm:px-8 sm:py-6">
                   <span className="text-xs font-light tracking-[0.15em] text-primary">{solution.tag}</span>
                   <ArrowUpRight
                     className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
                     aria-hidden="true"
                   />
                 </div>
-                <div className="flex flex-1 flex-col p-8">
-                  <h3 className="text-2xl font-medium tracking-tight text-foreground">{solution.name}</h3>
+                <div className="flex flex-1 flex-col p-5 sm:p-8">
+                  <h3 className="text-xl font-medium tracking-tight text-foreground sm:text-2xl">{solution.name}</h3>
                   <p className="mt-1 text-sm font-light text-slate-300">{solution.summary}</p>
                   {solution.points ? null : (
                     <p className="mt-6 text-sm font-light leading-relaxed text-slate-400 text-pretty">
@@ -334,7 +335,7 @@ export function SolutionsSection() {
             id="solution-enterprise-dx"
             className="mt-10 group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50"
           >
-            <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
+            <div className="flex items-center justify-between border-b border-border/60 px-5 py-5 sm:px-8 sm:py-6">
               <span className="text-xs font-light tracking-[0.15em] text-primary">
                 {t.enterpriseDxSolution.tag}
               </span>
@@ -343,8 +344,8 @@ export function SolutionsSection() {
                 aria-hidden="true"
               />
             </div>
-            <div className="flex flex-1 flex-col p-8">
-              <h3 className="text-2xl font-medium tracking-tight text-foreground">
+            <div className="flex flex-1 flex-col p-5 sm:p-8">
+              <h3 className="text-xl font-medium tracking-tight text-foreground sm:text-2xl">
                 {t.enterpriseDxSolution.title}
               </h3>
               <p className="mt-2 text-sm font-light leading-relaxed text-slate-300 text-pretty">
@@ -389,15 +390,15 @@ export function SolutionsSection() {
 
         <Reveal delay={140}>
           <article className="mt-10 group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50">
-            <div className="flex items-center justify-between border-b border-border/60 px-8 py-6">
+            <div className="flex items-center justify-between border-b border-border/60 px-5 py-5 sm:px-8 sm:py-6">
               <span className="text-xs font-light tracking-[0.15em] text-primary">{t.tailoredTag}</span>
               <ArrowUpRight
                 className="h-5 w-5 text-muted-foreground transition-all duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary"
                 aria-hidden="true"
               />
             </div>
-            <div className="flex flex-1 flex-col p-8">
-              <h3 className="text-2xl font-medium tracking-tight text-foreground">{t.tailoredHeading}</h3>
+            <div className="flex flex-1 flex-col p-5 sm:p-8">
+              <h3 className="text-xl font-medium tracking-tight text-foreground sm:text-2xl">{t.tailoredHeading}</h3>
               <p className="mt-6 max-w-3xl text-sm font-light leading-relaxed text-slate-400 text-pretty">
                 {t.tailoredBody}
               </p>

@@ -53,25 +53,29 @@ export function VisionSection() {
   const t = copy[locale]
 
   return (
-    <section id="vision" className="bg-[#0A192F] py-40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+    <section id="vision" className="bg-[#0A192F] py-24 md:py-40 lg:py-40">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
-            <div className="mb-8 flex items-center justify-center gap-4">
+            <div className="mb-8 flex items-center justify-center gap-2 sm:gap-4">
               <span className="h-px w-12 bg-primary/80" aria-hidden="true" />
-              <span className="text-xs font-light tracking-[0.35em] text-primary">{t.label}</span>
+              <span className="text-[11px] font-light tracking-[0.22em] text-primary sm:text-xs sm:tracking-[0.35em]">
+                {t.label}
+              </span>
               <span className="h-px w-12 bg-primary/80" aria-hidden="true" />
             </div>
           </Reveal>
 
           <Reveal delay={90}>
-            <h2 className="font-serif text-3xl font-light leading-tight text-white text-balance lg:text-5xl">
+            <h2 className="font-serif text-3xl font-light leading-tight text-white text-balance sm:text-[2.1rem] lg:text-5xl">
               {locale === 'ja' ? (
                 <>
                   迫り来るAIという「
                   <ruby>
                     <span className="text-amber-300">隘路</span>
-                    <rt className="text-[0.32em] font-sans tracking-[0.2em] text-amber-200">AILO</rt>
+                    <rt className="text-[0.26em] font-sans tracking-[0.14em] text-amber-200 sm:text-[0.32em] sm:tracking-[0.2em]">
+                      AILO
+                    </rt>
                   </ruby>
                   」を制し、その先に「<span className="text-pink-200">愛</span>」と「
                   <span className="text-amber-200">繋がり</span>

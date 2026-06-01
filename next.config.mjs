@@ -1,4 +1,8 @@
+import { dirname } from "node:path"
+import { fileURLToPath } from "node:url"
+
 /** @type {import('next').NextConfig} */
+const projectRoot = dirname(fileURLToPath(import.meta.url))
 const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? ""
 const isGithubActions = process.env.GITHUB_ACTIONS === "true"
 const isProduction = process.env.NODE_ENV === "production"
@@ -10,6 +14,9 @@ const hasCustomDomain = customDomain.length > 0
 const basePath = !hasCustomDomain && !isUserOrOrgSite && (isGithubActions || isProduction) ? `/${resolvedRepoName}` : ""
 
 const nextConfig = {
+  turbopack: {
+    root: projectRoot,
+  },
   output: "export",
   trailingSlash: true,
   basePath,

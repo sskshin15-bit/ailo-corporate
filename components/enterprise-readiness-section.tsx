@@ -40,13 +40,15 @@ export function EnterpriseReadinessSection() {
   return (
     <section
       id="enterprise-readiness"
-      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-28 lg:py-36"
+      className="border-t border-border/60 bg-[linear-gradient(180deg,#0f1b33_0%,#10203a_100%)] py-20 md:py-28 lg:py-36"
     >
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-10">
         <Reveal>
-          <div className="mb-6 flex items-center gap-4">
+          <div className="mb-6 flex items-center gap-3 sm:gap-4">
             <span className="h-px w-12 bg-primary" aria-hidden="true" />
-            <span className="text-xs font-light uppercase tracking-[0.3em] text-primary">{t.label}</span>
+            <span className="text-[11px] font-light uppercase tracking-[0.18em] text-primary sm:text-xs sm:tracking-[0.3em]">
+              {t.label}
+            </span>
           </div>
         </Reveal>
         <Reveal delay={80}>
