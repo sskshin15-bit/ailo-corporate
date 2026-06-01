@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { Linkedin } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
@@ -75,6 +76,7 @@ const copy = {
 export function BoardSection() {
   const { locale } = useLocale()
   const t = copy[locale]
+  const [activeMemberIndex, setActiveMemberIndex] = useState<number | null>(null)
 
   return (
     <section
@@ -100,13 +102,16 @@ export function BoardSection() {
         <div className="grid gap-8 md:grid-cols-2">
           {t.members.map((member, i) => (
             <Reveal key={`${member.role}-${i}`} delay={i * 140}>
-              <article className="group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50 sm:flex-row">
-                <div className="relative h-64 w-full shrink-0 sm:h-auto sm:w-48">
+              <article
+                className="group flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50 sm:flex-row"
+                onClick={() => setActiveMemberIndex((current) => (current === i ? null : i))}
+              >
+                <div className="relative h-64 w-full shrink-0 overflow-hidden sm:h-auto sm:w-48">
                   <Image
                     src={withBasePath(member.image || '/placeholder.svg')}
                     alt={member.name ? `Portrait of ${member.name}` : 'Board member portrait'}
                     fill
-                    className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0"
+                    className={`object-cover transition-all duration-700 group-hover:grayscale-0 ${activeMemberIndex === i ? 'grayscale-0' : 'grayscale'}`}
                   />
                 </div>
                 <div className="flex flex-1 flex-col justify-center p-8">
