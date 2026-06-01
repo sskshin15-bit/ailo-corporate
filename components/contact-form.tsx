@@ -114,8 +114,14 @@ export function ContactForm() {
         body: formData,
       })
 
-      if (!response.ok) {
-        throw new Error(`Request failed: ${response.status}`)
+      const payload = (await response.json().catch(() => null)) as
+        | { success?: string | boolean; message?: string }
+        | null
+
+      const isSuccess = response.ok && (payload?.success === true || payload?.success === 'true')
+
+      if (!isSuccess) {
+        throw new Error(payload?.message || `Request failed: ${response.status}`)
       }
 
       setSubmitted(true)
