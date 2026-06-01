@@ -58,10 +58,13 @@ export function HeroSection() {
                   ビジネスの「
                   <ruby className="relative inline-flex items-end px-1 text-amber-300 sm:inline-block">
                     隘路
-                    <rt className="translate-y-[-0.06em] whitespace-nowrap text-[0.26em] font-sans font-medium tracking-[0.16em] text-amber-200 sm:absolute sm:-top-5 sm:left-1/2 sm:translate-y-0 sm:-translate-x-1/2 sm:text-[0.28em] sm:tracking-[0.2em]">
+                    <rt className="hidden sm:absolute sm:-top-5 sm:left-1/2 sm:block sm:translate-y-0 sm:-translate-x-1/2 sm:whitespace-nowrap sm:text-[0.28em] sm:font-sans sm:font-medium sm:tracking-[0.2em] sm:text-amber-200">
                       AILO
                     </rt>
                   </ruby>
+                  <span className="ml-1 inline text-[0.36em] font-sans font-medium tracking-[0.12em] text-amber-200 align-middle sm:hidden">
+                    (AILO)
+                  </span>
                   」を切り拓き、
                   <br />
                   人を想う「<span className="text-amber-200">繋がり</span>」を創り出す。
