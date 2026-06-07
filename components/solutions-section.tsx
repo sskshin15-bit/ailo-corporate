@@ -70,6 +70,12 @@ const copy: Record<
         summary: '感動を可視化し、現場のモチベーションと報酬へ直結させる次世代SaaS。',
         description:
           'インバウンド旅行者からのチップを、専用アプリ不要でスムーズに受け取れる次世代インフラです。既存のPOSレジ環境を変えずに導入でき、集まった資金はシステム上で「法人の売上」と「適法な手当」へ自動集計・分配。税務面のリスクをクリアした設計で、サービス業の離職防止と採用力強化という経済効果を生み出します。（※関連技術について特許出願中）',
+        points: [
+          '受取動線の設計 ＆ 社員マニュアル制作支援: QRコードの配置計画からスタッフへの案内フローまで、チップを自然に受け取れる現場環境を構築。運用開始をスムーズにするオリジナルマニュアルの制作もサポートします。',
+          'お客様の声をリアルタイムで届け、モチベーションを高める: ゲストから寄せられた感謝のコメントは、担当スタッフへ即時通知。「認められている」という実感が現場の活力を生み出し、離職防止に直結します。',
+          'ネガティブフィードバックの知的フィルタリング: 批判的なコメントは経営者のみへ転送するルートと、AIが攻撃的な表現を穏やかな業務改善の示唆に言い換えてスタッフへ届けるルートを選択可能。心象を損なわずに改善サイクルを回します。',
+          'ニーズに応じたオーダーメイドカスタマイズ: 店舗規模・業態・運用体制に合わせ、必要な機能だけを組み合わせて導入可能。スモールスタートから本格展開まで柔軟に対応します。',
+        ],
       },
       {
         tag: 'TrustLoop & AI-DX Consulting',
@@ -137,6 +143,12 @@ const copy: Record<
         summary: 'A next-generation SaaS that turns guest appreciation into visible motivation and compensation.',
         description:
           'A next-generation infrastructure that lets inbound travelers tip smoothly without a dedicated app. It works with existing POS environments and automatically allocates funds as corporate revenue and lawful allowances. Built with tax and compliance considerations in mind, it helps hospitality operators reduce turnover and strengthen hiring competitiveness. (*Related technology patent pending)',
+        points: [
+          'Tipping flow design & staff manual creation: We design the complete guest-facing tipping journey — from QR placement to staff briefing scripts — and produce ready-to-use operational manuals to get your team up and running with confidence.',
+          'Deliver guest appreciation to staff in real time: Thank-you messages from guests are pushed instantly to the staff who served them. Feeling genuinely recognized fuels daily motivation and reduces turnover at the source.',
+          'Intelligent filtering of negative feedback: Critical comments can be routed exclusively to management, or an AI layer rewrites harsh language into constructive improvement suggestions before delivery — keeping morale intact while driving meaningful change.',
+          'Fully customizable to your operation: Combine only the features you need, sized to your venue, team structure, and rollout pace. From a single-location pilot to full-scale deployment, the platform adapts to you.',
+        ],
       },
       {
         tag: 'TrustLoop & AI-DX Consulting',
@@ -203,6 +215,12 @@ const copy: Record<
         summary: '将“服务感动”可视化，并直接转化为一线激励与报酬的下一代SaaS。',
         description:
           '面向入境旅客的小费收取基础设施，无需下载专用App即可顺畅支付。保持现有POS环境不变即可导入，系统自动将资金归集为“企业营收”与“合法津贴”。在兼顾税务合规的前提下，帮助服务业降低流失、提升招聘竞争力。（※相关技术专利申请中）',
+        points: [
+          '收小费动线设计与员工手册制作支持: 从二维码摆放到员工引导话术，从零规划顺畅的小费接收流程，并提供配套现场运营手册的制作支持，助您快速落地。',
+          '实时传递客人好评，激发员工内驱力: 客人留下的感谢评价即时推送给对应员工，切实感受到被认可的价值，从而提升积极性、降低离职率。',
+          '负面反馈的智能分流处理: 批评性内容可仅转发给管理层，也可由AI将措辞激烈的表达润色为建设性改善建议后再传达给员工——在不伤害心情的前提下推动业务改善。',
+          '按需定制，灵活组合: 根据门店规模、业态与运营模式自由组合所需功能，从小规模试点到全面推广，均可灵活适配。',
+        ],
       },
       {
         tag: 'TrustLoop & AI-DX 咨询',
