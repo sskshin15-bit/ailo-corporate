@@ -13,6 +13,14 @@ type SolutionItem = {
   points?: string[]
 }
 
+const SOLUTION_ANCHORS = [
+  'solution-line-order-ai-crm',
+  'solution-sendthanks-tip',
+  'solution-sendthanks-feedback',
+  'solution-trustloop',
+  'solution-ai-web-digital-marketing',
+] as const
+
 type EnterpriseBlock = {
   tag: string
   title: string
@@ -92,6 +100,19 @@ const copy: Record<
         summary: '「選ばれるための信頼構築」と「非コア業務のAI自動化」を両立。',
         description:
           '顧客満足度の高いフィードバックを収集し、オンライン上のブランド信頼性（E-E-A-T）を底上げするSaaS「TrustLoop」を展開。あわせて、AIを活用したHP自動生成や電話自動応答など、士業・B2B領域に特化したDXソリューションを提供します。専門家による最終確認プロセスを組み込んだ安全設計により、リスクを抑えながら生産性を飛躍的に高めます。',
+      },
+      {
+        tag: 'AI Web制作 & デジタルマーケティング支援',
+        name: 'HP制作・SNS運用・MEO対策・Googleマップレビュー返信 — LLMアンサンブルでブランドを守る',
+        summary: '複数のトップLLMが多数決で最高品質を担保。一貫したブランドイメージを保ちながら、あらゆるデジタル接点を自動最適化します。',
+        description:
+          '単一AIに依存せず、複数の最先端LLMへ同時に生成指示を出し、出力を多数決・品質スコアリングでフィルタリングする「アンサンブル生成フロー」を採用。どの出力もブランドトーン・禁止表現・法令ガイドラインに照合してから公開・返信するため、一貫したブランドイメージを損なうことなく最高品質のコンテンツを量産できます。',
+        points: [
+          'HP制作 & コンテンツ自動更新: 貴社のブランドガイドラインをLLMに学習させ、SEOに強い高品質なウェブサイトをスピーディに制作。ニュースやキャンペーンページなど定常更新もAIが自動ドラフトし、担当者の承認ワンクリックで公開。',
+          'SNS運用 & ブランドボイス統一: 各SNSプラットフォームの最新トレンドを分析しながら、複数LLMが原稿を競作。多数決スコアリングで選ばれた投稿のみをスケジュール公開するため、炎上リスクを抑えながらエンゲージメントを最大化します。',
+          'MEO対策 分析ツール: Googleビジネスプロフィールの順位・クチコミ数・評価スコアをリアルタイム追跡。競合店舗との比較レポートを自動生成し、次の一手（キーワード追加・写真投稿 etc.）をAIがレコメンドします。',
+          'Googleマップ レビュー自動返信: 新着レビューをトリガーに複数LLMが返信文を生成。感情分析・ブランドトーン検証・禁止ワードチェックを多数決で通過した最高品質の文面のみをオーナーへ提案または自動返信。低評価レビューはエスカレーション通知で経営者が即時把握できます。',
+        ],
       },
     ],
     enterpriseDxSolution: {
@@ -175,6 +196,19 @@ const copy: Record<
         description:
           'TrustLoop helps capture high-quality customer feedback to strengthen online credibility (E-E-A-T). In parallel, we provide domain-specific DX solutions for professional firms, including AI website generation and automated call response. A safety-first workflow with expert final review improves productivity while keeping risk under control.',
       },
+      {
+        tag: 'AI Web Creation & Digital Marketing',
+        name: 'Website, SNS, MEO & Google Maps Review Replies — Brand-Safe LLM Ensemble',
+        summary: 'Multiple top-tier LLMs compete and vote on every output, ensuring the highest quality while preserving a consistent brand voice across all digital touchpoints.',
+        description:
+          'Rather than relying on a single AI model, our ensemble pipeline simultaneously queries multiple state-of-the-art LLMs and selects the best output through majority voting and quality scoring. Every result is validated against your brand tone, prohibited terms, and compliance guidelines before going live — delivering premium content at scale without compromising brand integrity.',
+        points: [
+          'Website creation & automated content updates: Brand guidelines are embedded into the LLM workflow, producing SEO-optimized websites rapidly. News posts and campaign pages are AI-drafted and published with a single approval click.',
+          'SNS management & unified brand voice: Multiple LLMs draft competing posts for each platform, analyzed against current trends. Only majority-approved content is scheduled for publishing, maximizing engagement while minimizing brand risk.',
+          'MEO analysis tool: Real-time tracking of Google Business Profile rankings, review counts, and rating scores. AI-generated competitive analysis reports surface actionable next steps — keyword additions, photo updates, and more.',
+          'Google Maps review auto-reply: New reviews trigger multi-LLM response generation. Only outputs passing sentiment analysis, brand-tone validation, and prohibited-word checks are proposed to owners or auto-published. Low-rating reviews trigger instant management escalation.',
+        ],
+      },
     ],
     enterpriseDxSolution: {
       tag: 'Enterprise AI & DX Solutions',
@@ -255,6 +289,19 @@ const copy: Record<
         description:
           '通过SaaS产品“TrustLoop”收集高满意度反馈，持续强化线上品牌可信度（E-E-A-T）。同时，我们提供面向士业与B2B场景的AI网站生成、电话自动应答等DX方案。以“专家最终确认”为前提的安全流程，在控制风险的同时显著提升生产效率。',
       },
+      {
+        tag: 'AI网站制作 & 数字营销支持',
+        name: '网站制作・SNS运营・MEO优化・谷歌地图评价回复 — LLM集成守护品牌形象',
+        summary: '多个顶级LLM同步生成、多数表决遴选最优输出，在保持一致品牌形象的同时，实现所有数字接触点的最高品质自动化。',
+        description:
+          '我们采用"集成生成流程"：不依赖单一AI模型，而是同时调用多个顶尖LLM并行生成，通过多数表决与质量评分筛选最优结果。每条输出在发布前均经品牌语气、禁用词汇及合规条款的自动校验，确保在大规模输出的同时绝不损害品牌一致性。',
+        points: [
+          '网站制作 & 内容自动更新: 将贵司品牌规范内嵌入LLM工作流，快速制作SEO强化型网站。新闻及活动页面由AI自动起草，一键审批即可发布。',
+          'SNS运营 & 品牌声音统一: 多个LLM针对各平台趋势同步起草竞争稿件，仅有通过多数表决的内容才能排期发布，在最大化互动率的同时将品牌风险降至最低。',
+          'MEO分析工具: 实时追踪谷歌商家档案的排名、评价数量及评分。AI自动生成竞品对比报告，并推荐下一步行动（关键词补充、图片上传等）。',
+          '谷歌地图评价自动回复: 新评价触发多LLM回复生成，仅通过情感分析、品牌语气校验及禁用词检测的最优文案才会提交审核或自动发布。低分评价即时触发管理层升级通知。',
+        ],
+      },
     ],
     enterpriseDxSolution: {
       tag: '企业级 AI与DX 解决方案',
@@ -286,7 +333,6 @@ const copy: Record<
 export function SolutionsSection() {
   const { locale } = useLocale()
   const t = copy[locale]
-  const solutionAnchors = ['solution-line-order-ai-crm', 'solution-sendthanks-tip', 'solution-sendthanks-feedback', 'solution-trustloop']
 
   return (
     <section
@@ -321,7 +367,7 @@ export function SolutionsSection() {
           {t.solutions.map((solution, i) => (
             <Reveal key={solution.name} delay={i * 120}>
               <article
-                id={solutionAnchors[i]}
+                id={SOLUTION_ANCHORS[i] ?? `solution-${i}`}
                 className="group scroll-mt-28 flex h-full flex-col border border-border/60 bg-card transition-colors duration-500 hover:border-primary/50"
               >
                 <div className="flex items-center justify-between border-b border-border/60 px-5 py-5 sm:px-8 sm:py-6">

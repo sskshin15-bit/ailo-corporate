@@ -14,6 +14,8 @@ const copy = {
       'お問い合わせを受け付けました。担当者より、機密性に十分配慮したうえで順次ご連絡いたします。',
     formAria: 'お問い合わせフォーム',
     name: 'お名前',
+    namePlaceholder: '山田 太郎',
+    autoResponse: 'お問い合わせありがとうございます。内容を確認し、担当よりご連絡いたします。',
     company: '会社名',
     email: 'メールアドレス',
     phone: '電話番号（任意）',
@@ -35,6 +37,8 @@ const copy = {
     thanksBody: 'We have received your inquiry. Our team will review it confidentially and contact you shortly.',
     formAria: 'Contact form',
     name: 'Full Name',
+    namePlaceholder: 'Jane Smith',
+    autoResponse: 'Thank you for contacting Ailo. We will review your inquiry and get back to you shortly.',
     company: 'Company',
     email: 'Business Email',
     phone: 'Phone (optional)',
@@ -56,6 +60,8 @@ const copy = {
     thanksBody: '我们已收到您的咨询内容，团队将在严格保密的前提下尽快与您联系。',
     formAria: '联系表单',
     name: '姓名',
+    namePlaceholder: '张三',
+    autoResponse: '感谢您联系Ailo。我们已收到您的咨询，将尽快与您取得联系。',
     company: '公司名称',
     email: '企业邮箱',
     phone: '电话（可选）',
@@ -103,7 +109,7 @@ export function ContactForm() {
       formData.append('_subject', `[AILO Contact] ${inquiryType}`)
       formData.append('_template', 'table')
       formData.append('_captcha', 'true')
-      formData.append('_autoresponse', 'お問い合わせありがとうございます。内容を確認し、担当よりご連絡いたします。')
+      formData.append('_autoresponse', t.autoResponse)
       formData.append('locale', locale)
 
       const response = await fetch(FORMSUBMIT_ENDPOINT, {
@@ -155,7 +161,7 @@ export function ContactForm() {
       aria-label={t.formAria}
     >
       <div className="grid gap-6 sm:grid-cols-2">
-        <Field id="name" label={t.name} type="text" autoComplete="name" placeholder="山田 太郎" />
+        <Field id="name" label={t.name} type="text" autoComplete="name" placeholder={t.namePlaceholder} />
         <Field
           id="company"
           label={t.company}
@@ -215,7 +221,8 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="bg-primary px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground transition-opacity hover:opacity-90"
+          aria-busy={isSubmitting}
+          className="bg-primary px-8 py-4 text-sm font-medium tracking-wide text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60"
         >
           {isSubmitting ? t.submitting : t.submit}
         </button>

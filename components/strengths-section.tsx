@@ -72,7 +72,7 @@ const copy = {
       {
         icon: MousePointerClick,
         number: '01',
-        title: 'Behavioral UX Design',
+        title: '行动设计UX',
         subtitle: '基于行为经济学的无缝客户体验',
         description:
           '我们将B2C数字营销中积累的方法沉淀为系统能力，降低用户心理负担并促进自然行动。通过最大限度减少下载App、复杂注册等心理“摩擦”，打造直观易用的UI/UX，助力提升满意度与服务使用率。',
@@ -80,7 +80,7 @@ const copy = {
       {
         icon: Brain,
         number: '02',
-        title: 'Advanced AI & Data Science',
+        title: '前沿AI与数据科学',
         subtitle: '以高级数理模型实现业务自治',
         description:
           '由资深数据科学家主导架构设计，结合生成式AI的敏捷开发体系，快速构建适应市场变化的产品。不止于效率提升，我们让AI深度解析业务数据，并将其沉淀为服务于CRM与HR分析的可持续数据资产。',
@@ -88,7 +88,7 @@ const copy = {
       {
         icon: ShieldCheck,
         number: '03',
-        title: 'Legal-Tech & Security',
+        title: '法律科技与安全',
         subtitle: '专家网络协同打造稳健运营底座',
         description:
           '为满足大型企业的严苛安全要求，我们与外部法律与税务专家紧密协作。在系统设计阶段即纳入复杂法律议题，帮助导入企业在稳健基础上将合规风险降至最低。',

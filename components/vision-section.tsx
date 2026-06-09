@@ -5,7 +5,7 @@ import { useLocale } from '@/components/locale-provider'
 
 const copy = {
   ja: {
-    label: 'Our Vision',
+    label: 'ビジョン',
     heading: '迫り来るAIという「隘路」を制し、その先に「愛」と「繋がり」の循環を創る。',
     intro:
       '合同会社Ailo（アイロ）の社名には、私たちが果たすべき「使命」と、大切にする「哲学」という、2つの深い意味が込められています。',
@@ -33,7 +33,7 @@ const copy = {
       'By breaking through this era\'s bottlenecks with technology, we build next-generation infrastructure that maximizes time for people to care for people.',
   },
   zh: {
-    label: 'Our Vision',
+    label: '我们的愿景',
     heading: '穿越AI时代的关键“隘路”，在其后构建“关爱”与“连接”的价值循环。',
     intro:
       'Ailo 这一名称承载两层核心含义：我们必须完成的使命，以及始终坚持的哲学。',

@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Linkedin } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { useLocale, type Locale } from '@/components/locale-provider'
 import { withBasePath } from '@/lib/site-path'
@@ -19,7 +18,7 @@ type BoardMember = {
 type BoardCopy = {
   label: string
   heading: string
-  profileAria: string
+  portraitAria: string
   members: BoardMember[]
 }
 
@@ -27,7 +26,7 @@ const copy: Record<Locale, BoardCopy> = {
   ja: {
     label: '経営陣',
     heading: '経営メンバー',
-    profileAria: 'プロフィール',
+    portraitAria: 'の写真',
     members: [
       {
         name: '',
@@ -50,7 +49,7 @@ const copy: Record<Locale, BoardCopy> = {
   en: {
     label: 'Board Members',
     heading: 'Board Members',
-    profileAria: 'profile',
+    portraitAria: 'portrait',
     members: [
       {
         name: '',
@@ -72,8 +71,8 @@ const copy: Record<Locale, BoardCopy> = {
   },
   zh: {
     label: '经营团队',
-    heading: 'Board Members',
-    profileAria: '个人资料',
+    heading: '经营成员',
+    portraitAria: '的照片',
     members: [
       {
         name: '',
@@ -130,11 +129,11 @@ export function BoardSection() {
                   className="relative block h-64 w-full shrink-0 overflow-hidden text-left sm:h-auto sm:w-48"
                   onClick={() => setActiveMemberIndex((current) => (current === i ? null : i))}
                   aria-pressed={activeMemberIndex === i}
-                  aria-label={`${member.role} portrait`}
+                  aria-label={`${member.role}${t.portraitAria}`}
                 >
                   <Image
                     src={withBasePath(member.image || '/placeholder.svg')}
-                    alt={member.name ? `Portrait of ${member.name}` : 'Board member portrait'}
+                    alt={member.role}
                     fill
                     className={`object-cover transition-all duration-700 group-hover:grayscale-0 ${activeMemberIndex === i ? 'grayscale-0' : 'grayscale'} ${member.portraitClass ?? ''}`}
                   />
@@ -142,32 +141,25 @@ export function BoardSection() {
                 <div className="flex flex-1 flex-col justify-center p-6 sm:p-8">
                   <h3 className="text-xl font-medium tracking-tight text-foreground">
                     {member.nameImage ? (
-                      <Image
-                        src={withBasePath(member.nameImage)}
-                        alt=""
-                        width={840}
-                        height={170}
-                        className="h-11 w-auto max-w-full object-contain"
-                        aria-hidden="true"
-                      />
+                      <span className="block">
+                        <Image
+                          src={withBasePath(member.nameImage)}
+                          alt={member.role}
+                          width={840}
+                          height={170}
+                          className="h-11 w-auto max-w-full object-contain"
+                        />
+                      </span>
                     ) : (
-                      member.name
+                      member.name || member.role
                     )}
                   </h3>
                   <p className="mt-1 text-xs font-light uppercase tracking-[0.2em] text-primary">
                     {member.role}
                   </p>
-                  <p
-                    className="mt-5 text-sm font-light leading-relaxed text-slate-400 text-pretty"
-                    dangerouslySetInnerHTML={{ __html: member.bio }}
-                  />
-                  <a
-                    href="#"
-                    aria-label={member.name ? `${member.name} ${t.profileAria}` : t.profileAria}
-                    className="mt-6 inline-flex h-9 w-9 items-center justify-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
-                  >
-                    <Linkedin className="h-4 w-4" strokeWidth={1.5} />
-                  </a>
+                  <p className="mt-5 text-sm font-light leading-relaxed text-slate-400 text-pretty">
+                    {member.bio}
+                  </p>
                 </div>
               </article>
             </Reveal>

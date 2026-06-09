@@ -10,6 +10,7 @@ const copy = {
   ja: {
     nav: [
       { label: 'ソリューション', href: '#solutions' },
+      { label: 'MEO', href: '#meo' },
       { label: '会社情報', href: '#leadership' },
       { label: 'ニュース', href: 'news' },
       { label: 'お問い合わせ', href: '#contact' },
@@ -25,6 +26,7 @@ const copy = {
   en: {
     nav: [
       { label: 'Solutions', href: '#solutions' },
+      { label: 'MEO', href: '#meo' },
       { label: 'Company', href: '#leadership' },
       { label: 'News', href: 'news' },
       { label: 'Contact', href: '#contact' },
@@ -40,6 +42,7 @@ const copy = {
   zh: {
     nav: [
       { label: '解决方案', href: '#solutions' },
+      { label: 'MEO', href: '#meo' },
       { label: '公司信息', href: '#leadership' },
       { label: '新闻动态', href: 'news' },
       { label: '联系我们', href: '#contact' },

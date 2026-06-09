@@ -17,35 +17,35 @@ export type NewsItem = {
 export const newsItems: NewsItem[] = [
   {
     slug: 'company-name-changed-to-ailo',
-    publishedAt: '2026-05-29',
+    publishedAt: '2026-06-05',
     translations: {
       ja: {
-        date: '2026年5月29日',
+        date: '2026年6月5日',
         category: 'プレスリリース',
         title: '社名変更のお知らせ',
-        excerpt: '当社は2日前に、会社名をCyberFreeks合同会社から合同会社Ailoへ変更いたしました。',
+        excerpt: '2026年6月5日付で、会社名をCyberFreeks合同会社から合同会社Ailoへ変更いたしました。',
         content: [
-          '当社は2026年5月29日付で、会社名をCyberFreeks合同会社から合同会社Ailoへ変更いたしました。',
+          '2026年6月5日付で、会社名をCyberFreeks合同会社から合同会社Ailoへ変更いたしました。',
           '今回の社名変更は、AI・DX・業務実装支援を中核とする当社の事業方針をより明確に示すためのものです。今後も、顧客企業の本番運用で成果を出すサービス提供に注力してまいります。',
         ],
       },
       en: {
-        date: 'May 29, 2026',
+        date: 'Jun 5, 2026',
         category: 'Press Release',
         title: 'Company Name Change Announcement',
-        excerpt: 'Two days ago, we changed our company name from CyberFreeks LLC to Ailo LLC.',
+        excerpt: 'Effective June 5, 2026, we changed our company name from CyberFreeks LLC to Ailo LLC.',
         content: [
-          'Effective May 29, 2026, we changed our company name from CyberFreeks LLC to Ailo LLC.',
+          'Effective June 5, 2026, we changed our company name from CyberFreeks LLC to Ailo LLC.',
           'This change reflects our focus on AI, DX, and production-ready implementation support. We will continue to deliver services that create measurable outcomes in real operations.',
         ],
       },
       zh: {
-        date: '2026年5月29日',
+        date: '2026年6月5日',
         category: '新闻发布',
         title: '公司更名公告',
-        excerpt: '两天前，本公司已将公司名称由CyberFreeks合同会社变更为合同会社Ailo。',
+        excerpt: '本公司已于2026年6月5日将公司名称由CyberFreeks合同会社变更为合同会社Ailo。',
         content: [
-          '本公司已于2026年5月29日将公司名称由CyberFreeks合同会社变更为合同会社Ailo。',
+          '本公司已于2026年6月5日将公司名称由CyberFreeks合同会社变更为合同会社Ailo。',
           '此次更名旨在更清晰地体现我们以AI、DX与业务落地实施为核心的发展方向。未来我们将继续专注于为客户提供可在本番环境稳定运行并产生实效的服务。',
         ],
       },

@@ -20,18 +20,20 @@ const copy = {
     footerNav: [
       {
         heading: '会社情報',
+        aria: '会社情報',
         links: [
           { label: 'Ailoについて', href: '/#top' },
           { label: '導入体制', href: '/#enterprise-readiness' },
           { label: '経営陣', href: '/#leadership' },
           { label: '採用情報', href: '/careers' },
-          { label: 'ニュース', href: '/#vision' },
+          { label: 'ニュース', href: '/news' },
         ],
       },
       {
         heading: 'ソリューション',
+        aria: 'ソリューション一覧',
         links: [
-          { label: 'SendThanks', href: '/#solution-sendthanks' },
+          { label: 'SendThanks', href: '/#solution-sendthanks-tip' },
           { label: 'LINEモバイルオーダー＆AI-CRM', href: '/#solution-line-order-ai-crm' },
           { label: 'TrustLoop', href: '/#solution-trustloop' },
           { label: 'AI-DXコンサルティング', href: '/#solution-enterprise-dx' },
@@ -39,6 +41,7 @@ const copy = {
       },
       {
         heading: '法務・規約',
+        aria: '法務・規約',
         links: [
           { label: 'プライバシーポリシー', href: '/privacy-policy' },
           { label: 'Cookieポリシー', href: '/cookie-policy' },
@@ -47,7 +50,6 @@ const copy = {
         ],
       },
     ],
-    companyAria: '会社情報',
     homeAria: '合同会社Ailo トップページ',
   },
   en: {
@@ -60,22 +62,24 @@ const copy = {
     inquiries: 'General Inquiries',
     summary: 'Enterprise-grade AI, Legal-Tech, and SaaS implementation support.',
     rights: 'All rights reserved.',
-    tagline: 'Tokyo · Built on trust.',
+    tagline: 'Kobe · Built on trust.',
     footerNav: [
       {
         heading: 'Company',
+        aria: 'Company links',
         links: [
           { label: 'About Ailo', href: '/#top' },
           { label: 'Readiness', href: '/#enterprise-readiness' },
           { label: 'Leadership', href: '/#leadership' },
           { label: 'Careers', href: '/careers' },
-          { label: 'Newsroom', href: '/#vision' },
+          { label: 'Newsroom', href: '/news' },
         ],
       },
       {
         heading: 'Solutions',
+        aria: 'Solutions links',
         links: [
-          { label: 'SendThanks', href: '/#solution-sendthanks' },
+          { label: 'SendThanks', href: '/#solution-sendthanks-tip' },
           { label: 'LINE Order & AI-CRM', href: '/#solution-line-order-ai-crm' },
           { label: 'TrustLoop', href: '/#solution-trustloop' },
           { label: 'DX Consulting', href: '/#solution-enterprise-dx' },
@@ -83,6 +87,7 @@ const copy = {
       },
       {
         heading: 'Legal',
+        aria: 'Legal links',
         links: [
           { label: 'Privacy Policy', href: '/privacy-policy' },
           { label: 'Cookie Policy', href: '/cookie-policy' },
@@ -91,7 +96,6 @@ const copy = {
         ],
       },
     ],
-    companyAria: 'Company links',
     homeAria: 'Ailo LLC home',
   },
   zh: {
@@ -104,19 +108,24 @@ const copy = {
     inquiries: '咨询邮箱',
     summary: '提供面向企业的AI、法律科技与SaaS一体化实施支持。',
     rights: '版权所有。',
-    tagline: 'Tokyo · Built on trust.',
+    tagline: '神户 · 以信任为基石。',
     footerNav: [
       {
         heading: '了解Ailo',
+        aria: '公司导航',
         links: [
           { label: '关于Ailo', href: '/#top' },
-          { label: '导入设计', href: '/#enterprise-readiness' },
+          { label: '导入体制', href: '/#enterprise-readiness' },
+          { label: '经营团队', href: '/#leadership' },
+          { label: '招聘信息', href: '/careers' },
+          { label: '新闻资讯', href: '/news' },
         ],
       },
       {
         heading: '核心解决方案',
+        aria: '解决方案导航',
         links: [
-          { label: 'SendThanks', href: '/#solution-sendthanks' },
+          { label: 'SendThanks', href: '/#solution-sendthanks-tip' },
           { label: 'LINE点单与AI-CRM', href: '/#solution-line-order-ai-crm' },
           { label: 'TrustLoop', href: '/#solution-trustloop' },
           { label: 'DX咨询', href: '/#solution-enterprise-dx' },
@@ -124,6 +133,7 @@ const copy = {
       },
       {
         heading: '法律与合规',
+        aria: '法律合规导航',
         links: [
           { label: '隐私政策', href: '/privacy-policy' },
           { label: 'Cookie政策', href: '/cookie-policy' },
@@ -132,7 +142,6 @@ const copy = {
         ],
       },
     ],
-    companyAria: '公司导航',
     homeAria: 'Ailo 首页',
   },
 } as const
@@ -208,7 +217,7 @@ export function ContactFooter() {
             </div>
 
             {t.footerNav.map((col) => (
-              <nav key={col.heading} aria-label={t.companyAria}>
+              <nav key={col.heading} aria-label={col.aria}>
                 <h3 className="text-xs font-light uppercase tracking-[0.2em] text-foreground">
                   {col.heading}
                 </h3>
