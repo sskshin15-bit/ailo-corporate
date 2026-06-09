@@ -18,7 +18,10 @@ const SOLUTION_ANCHORS = [
   'solution-sendthanks-tip',
   'solution-sendthanks-feedback',
   'solution-trustloop',
-  'solution-ai-web-digital-marketing',
+  'solution-hp-creation',
+  'solution-sns-management',
+  'solution-meo-analysis',
+  'solution-google-review',
 ] as const
 
 type EnterpriseBlock = {
@@ -102,16 +105,51 @@ const copy: Record<
           '顧客満足度の高いフィードバックを収集し、オンライン上のブランド信頼性（E-E-A-T）を底上げするSaaS「TrustLoop」を展開。あわせて、AIを活用したHP自動生成や電話自動応答など、士業・B2B領域に特化したDXソリューションを提供します。専門家による最終確認プロセスを組み込んだ安全設計により、リスクを抑えながら生産性を飛躍的に高めます。',
       },
       {
-        tag: 'AI Web制作 & デジタルマーケティング支援',
-        name: 'HP制作・SNS運用・MEO対策・Googleマップレビュー返信 — LLMアンサンブルでブランドを守る',
-        summary: '複数のトップLLMが多数決で最高品質を担保。一貫したブランドイメージを保ちながら、あらゆるデジタル接点を自動最適化します。',
+        tag: 'LLMアンサンブル × RAG — HP制作',
+        name: 'ブランドガイドラインをAIに内包させ、SEO最強サイトを最速制作・自動更新',
+        summary: 'RAGでブランド知識を常時参照。複数LLMが競作し多数決で厳選した、唯一無二のブランドボイスを持つウェブサイトを高速納品します。',
         description:
-          '単一AIに依存せず、複数の最先端LLMへ同時に生成指示を出し、出力を多数決・品質スコアリングでフィルタリングする「アンサンブル生成フロー」を採用。どの出力もブランドトーン・禁止表現・法令ガイドラインに照合してから公開・返信するため、一貫したブランドイメージを損なうことなく最高品質のコンテンツを量産できます。',
+          '社内ブランドガイドライン・トンマナ・禁止表現をベクトルDBに格納し、生成時にRAG（検索拡張生成）でリアルタイム参照。GPT-4o・Claude 4・Gemini 2.5など複数の最先端LLMが同時並行で原稿を生成し、品質スコアリングと多数決フィルタリングを通過した最高品質のコンテンツのみを採用します。ニュース・キャンペーンページ等の定常更新はAIが自動ドラフトし、担当者の承認ワンクリックで公開。Core Web Vitals・構造化データ・セマンティックSEOを標準実装し、初期制作から運用まで一気通貫でカバーします。',
         points: [
-          'HP制作 & コンテンツ自動更新: 貴社のブランドガイドラインをLLMに学習させ、SEOに強い高品質なウェブサイトをスピーディに制作。ニュースやキャンペーンページなど定常更新もAIが自動ドラフトし、担当者の承認ワンクリックで公開。',
-          'SNS運用 & ブランドボイス統一: 各SNSプラットフォームの最新トレンドを分析しながら、複数LLMが原稿を競作。多数決スコアリングで選ばれた投稿のみをスケジュール公開するため、炎上リスクを抑えながらエンゲージメントを最大化します。',
-          'MEO対策 分析ツール: Googleビジネスプロフィールの順位・クチコミ数・評価スコアをリアルタイム追跡。競合店舗との比較レポートを自動生成し、次の一手（キーワード追加・写真投稿 etc.）をAIがレコメンドします。',
-          'Googleマップ レビュー自動返信: 新着レビューをトリガーに複数LLMが返信文を生成。感情分析・ブランドトーン検証・禁止ワードチェックを多数決で通過した最高品質の文面のみをオーナーへ提案または自動返信。低評価レビューはエスカレーション通知で経営者が即時把握できます。',
+          'マルチLLM競作 & 多数決品質保証: 複数モデルの出力を意味的類似度・ブランドトーンスコア・SEOスコアの3軸で評価し、合議で最適解を選定。単一モデルの幻覚リスクをアンサンブルで構造的に排除します。',
+          'RAGによるブランド知識の永続参照: ブランドガイドライン・過去の承認済みコンテンツ・競合分析レポートをベクトルDBに蓄積。生成のたびに自動参照され、ブランドイメージの一貫性を長期維持します。',
+          'ヒューマン・イン・ザ・ループ承認フロー: AIが自動ドラフトした原稿を専用ダッシュボードに表示し、担当者が差分確認→ワンクリック公開。承認ログは全件監査証跡として保存されます。',
+        ],
+      },
+      {
+        tag: 'マルチLLMアンサンブル × トレンド解析 — SNS運用',
+        name: '競作→多数決→スケジュール公開。炎上リスクをゼロへ近づけるSNS全自動運用',
+        summary: '各プラットフォームのアルゴリズム変化をリアルタイム検知。複数LLMが競作した投稿を感情分析と多数決で厳選し、ブランドボイスを守りながらエンゲージメントを最大化します。',
+        description:
+          'X（旧Twitter）・Instagram・Facebook・TikTok・LinkedIn各プラットフォームのトレンドワードとエンゲージメントパターンをリアルタイム解析。プラットフォーム固有のアルゴリズム特性に最適化した投稿原稿を複数のLLMに同時生成させ、感情分析スコア・ブランドトーン適合度・炎上リスクスコアによる多段階フィルタリングで最終稿を決定。公開後のエンゲージメントデータをフィードバックループとして学習させ、投稿品質を継続的に改善します。',
+        points: [
+          '多段階炎上リスクフィルタリング: 投稿候補をセンチメント分析→禁止ワードチェック→ブランドガイドライン照合→業界コンプライアンス確認の4ステップで審査。高リスク判定の投稿は自動却下し、担当者へアラートを送信します。',
+          'クロスプラットフォーム最適化: 同一コアメッセージから各SNSの文化・文字数・ハッシュタグ慣習・最適投稿時間に合わせた専用バージョンをAIが自動生成。一つの指示から最大5プラットフォーム分の投稿を同時制作します。',
+          'パフォーマンス学習による継続改善: インプレッション・エンゲージメント率・フォロワー増減を投稿単位で記録し、高パフォーマンスパターンをLLMのプロンプトに自動フィードバック。運用期間が長いほど投稿精度が向上する仕組みです。',
+        ],
+      },
+      {
+        tag: 'リアルタイムBI × AI提案 — MEO対策分析ツール',
+        name: 'Googleビジネスプロフィールを24時間監視。競合を凌駕するMEO戦略をAIが自動設計',
+        summary: 'ローカル検索順位・クチコミ数・評価スコアを競合店舗と横並び比較。AIが次の一手を自動レコメンドし、地図検索での露出を最大化します。',
+        description:
+          'Google Business Profile APIとローカル検索シグナルをリアルタイム収集し、キーワード別順位・インプレッション数・方向案内リクエスト数・写真閲覧数など10以上の指標を自動集計。半径内の競合店舗と比較分析したBIダッシュボードをAIが週次・月次で自動生成。NAP情報の一貫性チェック・カテゴリ最適化提案・高反応キーワードの追加提案・写真投稿タイミングの推奨まで、MEO改善アクションをスコアリングして優先度付きで提示します。',
+        points: [
+          '競合インテリジェンス自動収集: 同エリア・同カテゴリの競合店舗のレビュー数推移・評価スコア・投稿頻度を自動追跡。差分が拡大した際にはアラートを発報し、対抗策の提案まで一気通貫で行います。',
+          'NAP整合性 & カテゴリ最適化: 店名・住所・電話番号の表記ゆれをウェブ全体でスキャンし、Googleの評価に影響するNAP不整合を自動検出。SEOインパクトの大きいカテゴリ設定・属性追加もAIが優先度付きで提案します。',
+          '施策効果の自動計測 & PDCA: 写真追加・投稿・Q&A更新などの施策前後で順位変動・インプレッション変化を自動比較。どの施策がMEOスコアに最も寄与したかをデータで可視化し、次サイクルの優先アクションを自動決定します。',
+        ],
+      },
+      {
+        tag: 'LLMアンサンブル × 感情分析 — Googleマップ レビュー返信',
+        name: '低評価も瞬時に検知・経営者通知。ブランドを守る最高品質の返信を全自動生成',
+        summary: '新着レビューをトリガーに複数LLMが返信文を競作。感情分析・ブランドトーン検証・リスクスコアリングを多数決で通過した文面のみを採用し、オーナー提案または自動返信します。',
+        description:
+          '新着Googleマップレビューをリアルタイム検知し、感情分析モデルで星評価・文章トーン・ネガティブキーワードを多次元解析。複数の最先端LLMが同時に返信文を生成し、ブランドトーン適合度スコア・法的リスクチェック・禁止表現スキャン・多言語品質評価（日英中）を経て最高品質の一文を選定。★1〜2の低評価レビューは即座にオーナーへエスカレーション通知を送信し、危機対応モードに切り替え。返信後の評価変化・クチコミ数推移を継続モニタリングし、返信戦略を自己改善します。',
+        points: [
+          'リアルタイム低評価エスカレーション: 星3以下・ネガティブキーワード検出時はオーナーのスマートフォンに即時プッシュ通知。返信すべき優先度・推奨アクション・類似事例の対応履歴をセットで提示し、初動対応を最速化します。',
+          '多言語対応 & 文化的適切性チェック: 日本語・英語・中国語・韓国語の返信を各言語ネイティブ品質で自動生成。インバウンド旅行者からのレビューにも言語を自動判定して最適な返信を即座に提案します。',
+          '返信ナレッジの継続蓄積: オーナーが修正・承認した返信文を学習データとして蓄積し、ブランド固有の返信スタイルをモデルに強化学習。導入期間が長いほど「そのお店らしい」返信精度が向上します。',
         ],
       },
     ],
@@ -197,16 +235,51 @@ const copy: Record<
           'TrustLoop helps capture high-quality customer feedback to strengthen online credibility (E-E-A-T). In parallel, we provide domain-specific DX solutions for professional firms, including AI website generation and automated call response. A safety-first workflow with expert final review improves productivity while keeping risk under control.',
       },
       {
-        tag: 'AI Web Creation & Digital Marketing',
-        name: 'Website, SNS, MEO & Google Maps Review Replies — Brand-Safe LLM Ensemble',
-        summary: 'Multiple top-tier LLMs compete and vote on every output, ensuring the highest quality while preserving a consistent brand voice across all digital touchpoints.',
+        tag: 'LLM Ensemble × RAG — Website Creation',
+        name: 'Brand DNA embedded into AI. Fastest-to-launch, SEO-optimized websites with autonomous content updates.',
+        summary: 'RAG keeps brand knowledge always on hand. Competing LLM drafts, majority-voted for quality, produce on-brand pages at machine speed.',
         description:
-          'Rather than relying on a single AI model, our ensemble pipeline simultaneously queries multiple state-of-the-art LLMs and selects the best output through majority voting and quality scoring. Every result is validated against your brand tone, prohibited terms, and compliance guidelines before going live — delivering premium content at scale without compromising brand integrity.',
+          'Brand guidelines, tone-of-voice rules, and prohibited expressions are stored in a vector database and retrieved in real time via RAG at every generation step. GPT-4o, Claude 4, Gemini 2.5, and other frontier LLMs generate competing drafts simultaneously; a quality-scoring and majority-voting layer selects the best output. News posts and campaign pages are auto-drafted by AI and published with a single approval click. Core Web Vitals, structured data, and semantic SEO are baked in from day one.',
         points: [
-          'Website creation & automated content updates: Brand guidelines are embedded into the LLM workflow, producing SEO-optimized websites rapidly. News posts and campaign pages are AI-drafted and published with a single approval click.',
-          'SNS management & unified brand voice: Multiple LLMs draft competing posts for each platform, analyzed against current trends. Only majority-approved content is scheduled for publishing, maximizing engagement while minimizing brand risk.',
-          'MEO analysis tool: Real-time tracking of Google Business Profile rankings, review counts, and rating scores. AI-generated competitive analysis reports surface actionable next steps — keyword additions, photo updates, and more.',
-          'Google Maps review auto-reply: New reviews trigger multi-LLM response generation. Only outputs passing sentiment analysis, brand-tone validation, and prohibited-word checks are proposed to owners or auto-published. Low-rating reviews trigger instant management escalation.',
+          'Multi-LLM competition & majority-vote quality guarantee: Candidate outputs are ranked across three axes — semantic similarity, brand-tone score, and SEO score — and the consensus pick is selected. Ensemble architecture structurally eliminates single-model hallucination risk.',
+          'RAG-powered brand knowledge persistence: Guidelines, approved past content, and competitive analysis reports are continuously stored in a vector DB and auto-referenced at every generation, maintaining brand consistency long-term.',
+          'Human-in-the-loop approval workflow: AI-drafted content surfaces in a review dashboard for diff-view approval with one click. Every approval is logged as a full audit trail.',
+        ],
+      },
+      {
+        tag: 'Multi-LLM Ensemble × Trend Analysis — SNS Management',
+        name: 'Compete → Vote → Schedule. Fully automated social media that pushes engagement and eliminates brand risk.',
+        summary: 'Real-time detection of platform algorithm shifts. LLMs compete on every draft; sentiment analysis and majority voting select the post that maximizes reach while protecting your brand.',
+        description:
+          'Trending keywords and engagement patterns across X, Instagram, Facebook, TikTok, and LinkedIn are ingested in real time. Multiple frontier LLMs simultaneously produce platform-specific drafts optimized for each algorithm. A multi-stage filter — sentiment score, brand-tone fit, risk score, and compliance check — selects the final post. Post-publish engagement data feeds back into the pipeline as continuous learning, improving output quality over time.',
+        points: [
+          'Multi-stage brand-risk filtering: Candidates pass through sentiment analysis → prohibited-term scan → brand guideline validation → industry compliance check. High-risk outputs are auto-rejected; alerts are sent to the responsible team member.',
+          'Cross-platform content optimization: One core message generates platform-native versions for up to five channels simultaneously, each adapted for character limits, hashtag conventions, and optimal posting times.',
+          'Performance feedback loop: Impressions, engagement rate, and follower trends are logged per post and fed back as prompt signals, so the longer you run, the better each post gets.',
+        ],
+      },
+      {
+        tag: 'Real-Time BI × AI Recommendations — MEO Analysis Tool',
+        name: '24/7 Google Business Profile monitoring. AI-designed MEO strategy that outranks competitors.',
+        summary: 'Local search rankings, review counts, and rating scores benchmarked against nearby competitors. AI recommends the next highest-impact action and tracks results automatically.',
+        description:
+          'The Google Business Profile API and local search signals are ingested in real time — keyword rankings, impressions, direction requests, and photo views across 10+ metrics. A BI dashboard comparing your profile against competitors in the same area and category is auto-generated weekly and monthly. NAP consistency checks, category optimization suggestions, high-value keyword additions, and photo-posting timing recommendations are all scored and presented as a prioritized action list.',
+        points: [
+          'Competitive intelligence, automated: Review volume trends, rating scores, and posting frequency of nearby competitors are tracked continuously. When a gap widens, an alert fires and a counter-strategy recommendation is generated automatically.',
+          'NAP integrity & category optimization: Business name, address, and phone number inconsistencies are scanned across the web and flagged. High-impact category and attribute improvements are proposed with SEO impact estimates.',
+          'Before/after impact measurement: Ranking and impression changes are automatically compared before and after each action — photo uploads, posts, Q&A updates — so you can see exactly which tactics move the needle.',
+        ],
+      },
+      {
+        tag: 'LLM Ensemble × Sentiment Analysis — Google Maps Review Replies',
+        name: 'Instant low-rating detection and owner alerts. Highest-quality brand-safe replies generated automatically.',
+        summary: 'Every new review triggers parallel multi-LLM drafting. Only responses passing sentiment analysis, brand-tone validation, and risk scoring are proposed to the owner or auto-published.',
+        description:
+          'New Google Maps reviews are detected in real time and analyzed across star rating, emotional tone, and negative-keyword density by a sentiment model. Multiple frontier LLMs generate reply candidates simultaneously; brand-tone fit, legal risk, prohibited-term scan, and multilingual quality assessment (JA / EN / ZH) determine the winning response. Reviews rated ★1–2 trigger an immediate owner push notification with escalation context. Post-reply rating changes and review volume trends are monitored continuously to self-improve reply strategy.',
+        points: [
+          'Real-time low-rating escalation: Reviews rated ★3 or below and negative-keyword hits trigger instant push notifications to the owner\'s device — including priority level, recommended action, and similar past cases — enabling the fastest possible first response.',
+          'Multilingual quality generation: Japanese, English, Chinese, and Korean replies are auto-generated at native quality. For inbound tourist reviews, the source language is detected automatically and an optimized reply is proposed immediately.',
+          'Continuous reply-knowledge accumulation: Owner-edited and approved replies feed back as training data, reinforcing your brand\'s unique response style. The longer the system runs, the more "yours" every reply sounds.',
         ],
       },
     ],
@@ -290,16 +363,51 @@ const copy: Record<
           '通过SaaS产品“TrustLoop”收集高满意度反馈，持续强化线上品牌可信度（E-E-A-T）。同时，我们提供面向士业与B2B场景的AI网站生成、电话自动应答等DX方案。以“专家最终确认”为前提的安全流程，在控制风险的同时显著提升生产效率。',
       },
       {
-        tag: 'AI网站制作 & 数字营销支持',
-        name: '网站制作・SNS运营・MEO优化・谷歌地图评价回复 — LLM集成守护品牌形象',
-        summary: '多个顶级LLM同步生成、多数表决遴选最优输出，在保持一致品牌形象的同时，实现所有数字接触点的最高品质自动化。',
+        tag: 'LLM集成 × RAG — 网站制作',
+        name: '将品牌DNA内嵌AI，以最快速度制作SEO顶级网站并实现内容自动更新',
+        summary: 'RAG实时调取品牌知识库，多LLM竞稿经多数表决精选，以品牌专属语气量产最高品质页面。',
         description:
-          '我们采用"集成生成流程"：不依赖单一AI模型，而是同时调用多个顶尖LLM并行生成，通过多数表决与质量评分筛选最优结果。每条输出在发布前均经品牌语气、禁用词汇及合规条款的自动校验，确保在大规模输出的同时绝不损害品牌一致性。',
+          '将品牌规范、语气风格及禁用表达存入向量数据库，每次生成时通过RAG（检索增强生成）实时参照。GPT-4o、Claude 4、Gemini 2.5等多个顶尖LLM同步生成竞争稿件，经质量评分与多数表决筛选最优输出。新闻与活动页面由AI自动起草，管理员一键审批即可发布。Core Web Vitals优化、结构化数据及语义SEO从初始构建起即标准内置，从制作到运维一体化覆盖。',
         points: [
-          '网站制作 & 内容自动更新: 将贵司品牌规范内嵌入LLM工作流，快速制作SEO强化型网站。新闻及活动页面由AI自动起草，一键审批即可发布。',
-          'SNS运营 & 品牌声音统一: 多个LLM针对各平台趋势同步起草竞争稿件，仅有通过多数表决的内容才能排期发布，在最大化互动率的同时将品牌风险降至最低。',
-          'MEO分析工具: 实时追踪谷歌商家档案的排名、评价数量及评分。AI自动生成竞品对比报告，并推荐下一步行动（关键词补充、图片上传等）。',
-          '谷歌地图评价自动回复: 新评价触发多LLM回复生成，仅通过情感分析、品牌语气校验及禁用词检测的最优文案才会提交审核或自动发布。低分评价即时触发管理层升级通知。',
+          '多LLM竞稿 & 多数表决品质保障: 候选内容从语义相似度、品牌语气契合度、SEO得分三个维度综合评分，通过集体表决选出最优解，从结构上规避单一模型的幻觉风险。',
+          'RAG驱动的品牌知识持续参照: 品牌规范、历史审批内容与竞品分析报告持续存入向量数据库，每次生成时自动调取，长期维护品牌形象一致性。',
+          '人工审批闭环流程: AI起草内容呈现于专属仪表盘供差异对比审核，一键即可发布，所有审批记录作为完整审计日志留存备查。',
+        ],
+      },
+      {
+        tag: '多LLM集成 × 趋势解析 — SNS运营',
+        name: '竞稿→表决→定时发布。将品牌风险降至最低的全自动SNS运营',
+        summary: '实时感知各平台算法动态，多LLM同步竞稿，经情感分析与多数表决严格筛选，在守护品牌声誉的同时最大化互动率。',
+        description:
+          '实时采集X、Instagram、Facebook、TikTok、LinkedIn各平台的热词与互动模式，多个顶尖LLM同时生成针对各平台算法特性优化的帖子，经情感得分、品牌语气匹配度、风险评分、合规审查四道过滤后确定最终稿。发布后的互动数据持续作为反馈输入优化流程，投稿质量随运营周期不断提升。',
+        points: [
+          '多层品牌风险过滤: 候选内容依次经情感分析→禁用词扫描→品牌规范核验→行业合规审查四道关卡，高风险内容自动拦截并向责任人发送提醒。',
+          '跨平台内容最优化: 一条核心信息可同步生成最多五个平台的专属版本，分别适配字数限制、话题标签惯例与最佳发布时段。',
+          '效果反馈持续进化: 曝光量、互动率、粉丝增减均按帖子维度记录并反馈至提示词，运营时间越长，每条投稿的精准度越高。',
+        ],
+      },
+      {
+        tag: '实时BI × AI建议 — MEO优化分析工具',
+        name: '全天候监控谷歌商家档案，AI自动设计超越竞争对手的MEO策略',
+        summary: '本地搜索排名、评价数量与评分同竞店横向对比，AI推荐优先级最高的下一步行动并自动追踪执行效果。',
+        description:
+          '通过Google Business Profile API实时采集本地搜索信号，自动汇总关键词排名、曝光量、路线导航请求、图片浏览量等10余项指标。AI自动生成与同区域、同类别竞争对手的BI对比仪表盘（按周/月），并以优先级排序呈现NAP一致性检查、类别优化建议、高价值关键词添加及图片投稿时机推荐等MEO改善行动清单。',
+        points: [
+          '竞品情报自动收集: 持续追踪周边竞店的评价数增长趋势、评分及发帖频率，差距扩大时即时发出预警并自动生成应对策略建议。',
+          'NAP一致性 & 类别优化: 全网扫描店名、地址、电话的表述差异，自动标记影响谷歌评分的不一致项，并按SEO影响力优先提议类别设置与属性补充。',
+          '施策效果自动测量 & PDCA: 图片上传、发帖、Q&A更新等操作前后的排名与曝光变化自动比对，可视化呈现哪项举措最有成效，并自动确定下一周期的优先行动。',
+        ],
+      },
+      {
+        tag: 'LLM集成 × 情感分析 — 谷歌地图评价回复',
+        name: '低分评价瞬时预警推送，全自动生成守护品牌的最高品质回复',
+        summary: '新评价到来即触发多LLM并行起稿，仅通过情感分析、品牌语气校验与风险评分的文案才会提交审核或自动发布。',
+        description:
+          '实时检测谷歌地图新评价，通过情感模型对星级评分、情绪倾向、负面关键词密度进行多维解析。多个顶尖LLM同步生成回复候选，经品牌语气契合度、法律风险扫描、禁用词检测及多语言品质评估（日中英韩）确定最优回复。★1〜2低分评价即时触发经营者推送通知并附上升级处理建议，回复后持续追踪评分变化与评价数趋势以自我优化回复策略。',
+        points: [
+          '低分评价实时升级通知: ★3及以下或检测到负面关键词时，即刻向经营者手机推送通知，并附上优先级判断、推荐行动与相似案例处理记录，让初动响应速度最快化。',
+          '多语种高质量生成: 自动以母语级水准生成日语、英语、中文、韩语回复。针对入境旅游者的评价，系统自动识别语言并即时提出最优回复建议。',
+          '回复知识库持续积累: 经营者修改并审批的回复文本持续作为训练数据积累，强化模型对该品牌独特回复风格的学习。运营时间越长，回复越具"品牌专属感"。',
         ],
       },
     ],
