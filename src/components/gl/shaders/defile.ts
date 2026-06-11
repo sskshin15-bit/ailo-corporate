@@ -208,10 +208,11 @@ void main(){
     float tone=0.92+0.16*hash(cell);
     vec3 fcol=mix(vec3(0.886,0.852,0.796), vec3(0.835,0.792,0.722), fbm(fp.xz*0.8))*tone;
     fcol*=0.96+0.07*noise(fp.xz*24.0);
-    /* beveled paving joints */
+    /* beveled paving joints — width scales with distance, darkening fades */
+    float jw=(0.018+0.014*tP)*exp(-tP*0.11);
     float jz=abs(fract(fp.z/SP*2.0)-0.5)*SP*0.5;
     float jx=abs(fract(fp.x/0.90+0.5)-0.5)*0.90;
-    fcol*=1.0-0.06*(1.0-smoothstep(0.0,0.025,jz))-0.06*(1.0-smoothstep(0.0,0.020,jx));
+    fcol*=1.0-0.06*(1.0-smoothstep(0.0,jw,jz))-0.06*(1.0-smoothstep(0.0,jw,jx));
     /* contact shadows grounding the inner pillars */
     float zc=mod(fp.z,SP)-SP*0.5;
     fcol*=1.0-0.28*exp(-pow((abs(fp.x)-1.35)*3.2,2.0))*exp(-pow((zc+0.9)*1.1,2.0));
@@ -220,14 +221,15 @@ void main(){
     /* reflection — strongest on the foot-polished center band; culled far away */
     float wear=exp(-fp.x*fp.x*1.6);
     vec3 rrd=reflect(rd,vec3(0.0,1.0,0.0));
-    vec3 rcol;
-    if(tP<12.0){
+    float refF=1.0-smoothstep(5.0,7.0,tP);
+    vec3 rcol=skyLite(rrd);
+    if(tP<7.0){
       float tR=marchR(fp+vec3(0.0,0.01,0.0),rrd,22.0);
       rcol=(tR>0.0)? gateShade(fp+rrd*tR,calcN(fp+rrd*tR),rrd) : skyLite(rrd);
-    }else{ rcol=skyLite(rrd); }
+    }
     float fres=pow(1.0-clamp(-rd.y,0.0,1.0),3.0);
-    fcol=mix(fcol,rcol,(0.12+0.50*fres)*(0.55+0.45*wear));
-    fcol+=BEAM*pow(clamp(dot(rrd,SUN),0.0,1.0),80.0)*0.65*(0.5+0.5*wear);
+    fcol=mix(fcol,rcol,(0.12+0.50*fres)*(0.55+0.45*wear)*refF);
+    fcol+=BEAM*pow(clamp(dot(rrd,SUN),0.0,1.0),36.0)*0.5*(0.5+0.5*wear);
     col=mix(fcol, sky, 1.0-exp(-tP*0.075));
   }else if(tG>0.0){
     vec3 p=ro+rd*tG;

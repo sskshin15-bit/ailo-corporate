@@ -16,11 +16,11 @@ import { ContactSection } from "@/components/sections/ContactSection";
 export default function HomePageClient() {
   return (
     <SiteShell>
-      {({ scrollRef, visionPhaseRef, visionActiveRef, pointerRef }) => (
+      {({ scrollRef, lenisRef, visionPhaseRef, visionActiveRef, pointerRef }) => (
         <>
           <Nav />
           <main className="relative z-10">
-            <HeroSection scrollRef={scrollRef} />
+            <HeroSection scrollRef={scrollRef} lenisRef={lenisRef} />
             <StrengthsSection />
             <SolutionsSection />
             <MeoSection />

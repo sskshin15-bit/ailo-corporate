@@ -26,6 +26,8 @@
 @layer base {
   html {
     scroll-behavior: auto;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   body {
     @apply bg-paper text-ink font-body antialiased;
@@ -99,6 +101,118 @@
   .section-space {
     padding-top: clamp(16vh, 18vh, 24vh);
     padding-bottom: clamp(16vh, 18vh, 24vh);
+  }
+}
+
+@keyframes chev {
+  0% { transform: translateY(-13px); opacity: 0; }
+  35% { opacity: 1; }
+  65% { opacity: 1; }
+  100% { transform: translateY(13px); opacity: 0; }
+}
+
+.scrollhint {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 6px;
+  opacity: 0.92;
+  transition: opacity 0.4s;
+}
+
+.scrollhint .cap {
+  font-family: var(--font-latin);
+  font-size: 11px;
+  letter-spacing: 0.5em;
+  text-indent: 0.5em;
+  color: #a8854f;
+  text-transform: uppercase;
+}
+
+.scrollhint .ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 133, 79, 0.6);
+  background: rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+}
+
+.scrollhint:hover .ring {
+  border-color: #a8854f;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(2px);
+}
+
+.scrollhint svg {
+  display: block;
+  animation: chev 2.2s cubic-bezier(0.45, 0, 0.4, 1) infinite;
+}
+
+@media (min-width: 1100px) {
+  .hero-micro {
+    font-size: 14.5px;
+    letter-spacing: 0.56em;
+    text-indent: 0.56em;
+  }
+  .hero-micro .jp {
+    font-size: 13px;
+  }
+  .hero-sub {
+    font-size: 1.06rem;
+    max-width: 40em;
+  }
+  .hero-btn {
+    font-size: 0.95rem;
+    padding: 1.15rem 3.4rem;
+  }
+  .hero-trust {
+    font-size: 12.5px;
+  }
+  .scrollhint .cap {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-sub br {
+    display: none;
+  }
+  .hero-ctas {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (hover: none) {
+  .hero-btn-primary:hover {
+    transform: none;
+    box-shadow: none;
+    background: #211d17;
+  }
+  .hero-btn-ghost:hover {
+    border-color: rgba(33, 29, 23, 0.45);
+    color: #211d17;
+    background: rgba(255, 255, 255, 0.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollhint svg {
+    animation: none;
   }
 }
 
