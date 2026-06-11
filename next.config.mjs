@@ -1,17 +1,23 @@
-import { dirname } from "node:path"
-import { fileURLToPath } from "node:url"
+import createNextIntlPlugin from "next-intl/plugin";
+import { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 /** @type {import('next').NextConfig} */
-const projectRoot = dirname(fileURLToPath(import.meta.url))
-const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? ""
-const isGithubActions = process.env.GITHUB_ACTIONS === "true"
-const isProduction = process.env.NODE_ENV === "production"
-const isUserOrOrgSite = repoName.endsWith(".github.io")
-const customDomain = process.env.NEXT_PUBLIC_SITE_DOMAIN ?? ""
-const fallbackProjectRepo = "ailo-corporate"
-const resolvedRepoName = repoName || fallbackProjectRepo
-const hasCustomDomain = customDomain.length > 0
-const basePath = !hasCustomDomain && !isUserOrOrgSite && (isGithubActions || isProduction) ? `/${resolvedRepoName}` : ""
+const projectRoot = dirname(fileURLToPath(import.meta.url));
+const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "";
+const isGithubActions = process.env.GITHUB_ACTIONS === "true";
+const isProduction = process.env.NODE_ENV === "production";
+const isUserOrOrgSite = repoName.endsWith(".github.io");
+const customDomain = process.env.NEXT_PUBLIC_SITE_DOMAIN ?? "";
+const fallbackProjectRepo = "ailo-corporate";
+const resolvedRepoName = repoName || fallbackProjectRepo;
+const hasCustomDomain = customDomain.length > 0;
+const basePath =
+  !hasCustomDomain && !isUserOrOrgSite && (isGithubActions || isProduction)
+    ? `/${resolvedRepoName}`
+    : "";
 
 const nextConfig = {
   turbopack: {
@@ -27,6 +33,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-}
+};
 
-export default nextConfig
+export default withNextIntl(nextConfig);
