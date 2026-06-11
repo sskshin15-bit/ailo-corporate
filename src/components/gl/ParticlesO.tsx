@@ -46,6 +46,9 @@ vec3 curl(vec3 p) {
   float n1y = sin(p.y + dy.y) + cos(p.z + dy.z);
   float n2y = sin(p.z + dy.z) + cos(p.x + dy.x);
   float n3y = sin(p.x + dy.x) + cos(p.y + dy.y);
+  float n1z = sin(p.y + dz.y) + cos(p.z + dz.z);
+  float n2z = sin(p.z + dz.z) + cos(p.x + dz.x);
+  float n3z = sin(p.x + dz.x) + cos(p.y + dz.y);
   return vec3(
     (n3y - n3x) - (n2z - n2x),
     (n1z - n1x) - (n3y - n3x),
@@ -82,7 +85,7 @@ void main() {
 
   vec3 v = (target - p) * 0.06;
   float d = length(p.xy - uPointer);
-  v += normalize(p.xy - uPointer + vec3(0.001)) * uRepel * smoothstep(0.8, 0.0, d) * 0.12;
+  v += normalize(vec3(p.xy - uPointer, 0.001)) * uRepel * smoothstep(0.8, 0.0, d) * 0.12;
   p += v;
   gl_FragColor = vec4(p, 1.0);
 }
