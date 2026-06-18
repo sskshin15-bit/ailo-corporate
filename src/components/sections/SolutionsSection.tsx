@@ -123,8 +123,8 @@ export function SolutionsSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           index="02 / SOLUTIONS"
-          title="本番で、動いている。"
-          lead="現場の負担を減らし、経営の数字を動かす。事業特性に寄り添う設計で、確実な成果へ。"
+          title="実装の、証明。"
+          lead="AI導入の成果を、現場で実感できるプロダクト群。業務診断から設計・実装まで伴走し、事業特性に寄り添う設計で確実な成果へ。"
         />
 
         <div className="mb-10 flex flex-wrap gap-4">
