@@ -19,7 +19,7 @@ export function heroEnterLightTargetPx(): number {
 /** Smoothly scroll to the post-hero "light revealed" state (same as manual scroll). */
 export function enterHeroLight(
   lenisRef: MutableRefObject<Lenis | null>,
-  duration = 2,
+  duration = 4,
 ): void {
   const target = heroEnterLightTargetPx();
   const lenis = lenisRef.current;

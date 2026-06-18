@@ -25,10 +25,10 @@ export function HeroSection({
   const onEnterLight = useCallback(() => {
     if (enteringRef.current || scrollRef.current > 0.35) return;
     enteringRef.current = true;
-    enterHeroLight(lenisRef, 2);
+    enterHeroLight(lenisRef, 4);
     window.setTimeout(() => {
       enteringRef.current = false;
-    }, 2200);
+    }, 4200);
   }, [lenisRef, scrollRef]);
 
   const onHeroPointerDown = useCallback(
