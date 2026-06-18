@@ -1,11 +1,38 @@
 "use client";
 
 import Lenis from "lenis";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type MutableRefObject } from "react";
+
+/** Scroll distance (px) mapped to hero progress 0→1 */
+export const HERO_SCROLL_RANGE = 1.6;
+/** Scroll target after "enter light" — fully reveals the corridor */
+export const HERO_ENTER_LIGHT_TARGET = 2.3;
+
+export function heroScrollProgress(scrollPx: number): number {
+  return Math.min(scrollPx / (window.innerHeight * HERO_SCROLL_RANGE), 1);
+}
+
+export function heroEnterLightTargetPx(): number {
+  return window.innerHeight * HERO_ENTER_LIGHT_TARGET;
+}
+
+/** Smoothly scroll to the post-hero "light revealed" state (same as manual scroll). */
+export function enterHeroLight(
+  lenisRef: MutableRefObject<Lenis | null>,
+  duration = 2,
+): void {
+  const target = heroEnterLightTargetPx();
+  const lenis = lenisRef.current;
+  if (lenis) {
+    lenis.scrollTo(target, { duration });
+    return;
+  }
+  window.scrollTo({ top: target, behavior: "smooth" });
+}
 
 export type ScrollBridge = {
-  scrollRef: React.MutableRefObject<number>;
-  lenisRef: React.MutableRefObject<Lenis | null>;
+  scrollRef: MutableRefObject<number>;
+  lenisRef: MutableRefObject<Lenis | null>;
 };
 
 export function useScrollBridge(): ScrollBridge {
@@ -21,7 +48,7 @@ export function useScrollBridge(): ScrollBridge {
     lenisRef.current = lenis;
 
     const onScroll = ({ scroll }: { scroll: number }) => {
-      scrollRef.current = Math.min(scroll / (window.innerHeight * 1.6), 1);
+      scrollRef.current = heroScrollProgress(scroll);
     };
     lenis.on("scroll", onScroll);
     onScroll({ scroll: lenis.scroll });

@@ -138,6 +138,14 @@
   text-transform: uppercase;
 }
 
+.scrollhint .cap-sub {
+  font-family: var(--font-mincho);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-indent: 0.28em;
+  color: rgba(168, 133, 79, 0.82);
+}
+
 .scrollhint .ring {
   width: 44px;
   height: 44px;

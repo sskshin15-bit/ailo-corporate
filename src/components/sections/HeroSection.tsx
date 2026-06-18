@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import type Lenis from "lenis";
 import { RubyAilo } from "@/components/ui/RubyAilo";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { enterHeroLight } from "@/lib/scroll";
 
 export function HeroSection({
   scrollRef,
@@ -19,6 +20,26 @@ export function HeroSection({
   const ctasRef = useRef<HTMLDivElement>(null);
   const trustRef = useRef<HTMLDivElement>(null);
   const hintRef = useRef<HTMLButtonElement>(null);
+  const enteringRef = useRef(false);
+
+  const onEnterLight = useCallback(() => {
+    if (enteringRef.current || scrollRef.current > 0.35) return;
+    enteringRef.current = true;
+    enterHeroLight(lenisRef, 2);
+    window.setTimeout(() => {
+      enteringRef.current = false;
+    }, 2200);
+  }, [lenisRef, scrollRef]);
+
+  const onHeroPointerDown = useCallback(
+    (event: React.PointerEvent<HTMLElement>) => {
+      if (scrollRef.current > 0.35) return;
+      const target = event.target as HTMLElement;
+      if (target.closest("a, button, [data-magnetic], #scrollhint")) return;
+      onEnterLight();
+    },
+    [onEnterLight, scrollRef],
+  );
 
   useEffect(() => {
     const layers: [HTMLElement | null, number][] = [
@@ -51,22 +72,13 @@ export function HeroSection({
       if (heroRef.current) {
         heroRef.current.style.setProperty("--scrimO", String(Math.max(0, 1 - e * 1.6)));
         heroRef.current.style.pointerEvents = scrollP > 0.4 ? "none" : "auto";
+        heroRef.current.style.cursor = scrollP > 0.35 ? "auto" : "pointer";
       }
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [scrollRef]);
-
-  const onScrollHint = () => {
-    const target = window.innerHeight * 2.3;
-    const lenis = lenisRef.current;
-    if (lenis) {
-      lenis.scrollTo(target, { duration: 1.8 });
-    } else {
-      window.scrollTo({ top: target, behavior: "smooth" });
-    }
-  };
 
   return (
     <>
@@ -75,6 +87,8 @@ export function HeroSection({
         id="top"
         className="pointer-events-auto fixed inset-0 z-10 flex flex-col items-center justify-center px-[6vw] text-center"
         style={{ ["--scrimO" as string]: 1 }}
+        onPointerDown={onHeroPointerDown}
+        aria-label="クリックまたはスクロールで光の中へ進む"
       >
         <div
           aria-hidden
@@ -156,10 +170,11 @@ export function HeroSection({
         type="button"
         id="scrollhint"
         className="scrollhint"
-        aria-label="下へスクロールして光の中へ"
-        onClick={onScrollHint}
+        aria-label="クリックまたはスクロールで光の中へ進む"
+        onClick={onEnterLight}
       >
-        <span className="cap">Scroll</span>
+        <span className="cap">光へ進む</span>
+        <span className="cap-sub">クリック / スクロール</span>
         <span className="ring">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path
