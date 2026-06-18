@@ -7,8 +7,8 @@ export function ContactSection() {
       <div className="mx-auto max-w-3xl">
         <SectionHeading
           index="CONTACT"
-          title="最初の一歩は、無料診断から。"
-          lead="グローバル展開企業から国内大手まで。顧客体験を事業資産へ転換する最適な設計・実装をご提案します。"
+          title="お問い合わせ"
+          lead="AI導入のご相談から、業務診断・実装・定着支援まで。グローバル展開企業から国内大手まで、御社に最適なAI導入プランをご提案します。"
         />
         <div className="content-panel p-8 md:p-10">
           <ContactForm />
