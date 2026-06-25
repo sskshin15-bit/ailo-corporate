@@ -16,6 +16,7 @@ export function Footer({ basePath = "" }: { basePath?: string }) {
             <p className="mb-3 text-[11px] tracking-[0.18em] text-ink">会社情報</p>
             <p>兵庫県神戸市中央区磯辺通1-1-18</p>
             <p>カサベラ国際プラザビル707号室</p>
+            <p className="mt-2">設立 2020年9月</p>
             <p className="mt-2">
               <a href="mailto:contact@ailo.co.jp" className="hover:text-ink">
                 contact@ailo.co.jp

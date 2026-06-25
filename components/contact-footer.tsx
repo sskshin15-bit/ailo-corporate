@@ -13,6 +13,8 @@ const copy = {
       'グローバル展開企業から国内大手企業まで、Ailoは顧客体験を事業資産へ転換するための最適な設計・実装をご提案いたします。',
     headquarters: '本社',
     address: '兵庫県神戸市中央区磯辺通1-1-18 カサベラ国際プラザビル707号室',
+    founded: '設立',
+    foundedDate: '2020年9月',
     inquiries: 'お問い合わせ窓口',
     summary: 'エンタープライズ向けAI、リーガルテック、SaaSを統合した実装支援を提供しています。',
     rights: 'All rights reserved.',
@@ -63,6 +65,8 @@ const copy = {
       'From globally expanding companies to major domestic enterprises, Ailo provides tailored design and implementation to transform customer experience into durable business assets.',
     headquarters: 'Headquarters',
     address: 'Room 707, Casabella International Plaza Building, 1-1-18 Isobedori, Chuo-ku, Kobe, Hyogo, Japan',
+    founded: 'Founded',
+    foundedDate: 'September 2020',
     inquiries: 'General Inquiries',
     summary: 'Enterprise-grade AI, Legal-Tech, and SaaS implementation support.',
     rights: 'All rights reserved.',
@@ -113,6 +117,8 @@ const copy = {
       '无论是全球化企业还是本土大型企业，Ailo都可提供最优设计与实施方案，帮助将客户体验沉淀为长期经营资产。',
     headquarters: '总部',
     address: '日本兵库县神户市中央区矶边通1-1-18 卡萨贝拉国际广场大厦707室',
+    founded: '成立',
+    foundedDate: '2020年9月',
     inquiries: '咨询邮箱',
     summary: '提供面向企业的AI、法律科技与SaaS一体化实施支持。',
     rights: '版权所有。',
@@ -196,6 +202,12 @@ export function ContactFooter() {
                     {t.headquarters}
                   </dt>
                   <dd className="mt-2 text-sm font-light text-foreground">{t.address}</dd>
+                </div>
+                <div>
+                  <dt className="text-xs font-light uppercase tracking-[0.2em] text-slate-400">
+                    {t.founded}
+                  </dt>
+                  <dd className="mt-2 text-sm font-light text-foreground">{t.foundedDate}</dd>
                 </div>
                 <div>
                   <dt className="text-xs font-light uppercase tracking-[0.2em] text-slate-400">
